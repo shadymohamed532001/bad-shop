@@ -69,3 +69,49 @@ class Container2Clipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper oldClipper) => false;
 }
+
+class Container3Clipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path_0 = Path();
+    path_0.moveTo(size.width * 1.0008286, size.height * -0.0013429);
+    path_0.lineTo(size.width, size.height * 0.3921429);
+    path_0.quadraticBezierTo(size.width * 0.8989857, size.height * 0.3813429,
+        size.width * 0.8571429, size.height * 0.3571429);
+    path_0.cubicTo(
+        size.width * 0.7842714,
+        size.height * 0.3224214,
+        size.width * 0.7050000,
+        size.height * 0.2505357,
+        size.width * 0.6542857,
+        size.height * 0.2150000);
+    path_0.cubicTo(
+        size.width * 0.5881286,
+        size.height * 0.1736143,
+        size.width * 0.5338571,
+        size.height * 0.1663929,
+        size.width * 0.4662429,
+        size.height * 0.1682929);
+    path_0.cubicTo(
+        size.width * 0.3833000,
+        size.height * 0.1688643,
+        size.width * 0.3267286,
+        size.height * 0.2118000,
+        size.width * 0.2871429,
+        size.height * 0.2442857);
+    path_0.quadraticBezierTo(size.width * 0.2488714, size.height * 0.2775643,
+        size.width * 0.2013000, size.height * 0.3674786);
+    path_0.quadraticBezierTo(size.width * 0.1414143, size.height * 0.4802714,
+        size.width * 0.1227857, size.height * 0.4933571);
+    path_0.quadraticBezierTo(size.width * 0.0925857, size.height * 0.5254143,
+        size.width * 0.0009714, size.height * 0.5342143);
+    path_0.lineTo(size.width * -0.0047143, size.height * -0.0002214);
+    path_0.lineTo(size.width * -0.0052143, size.height * -0.0010786);
+
+    path_0.close();
+    return path_0;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper oldClipper) => false;
+}
