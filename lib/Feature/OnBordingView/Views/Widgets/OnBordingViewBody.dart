@@ -3,6 +3,7 @@
 import 'package:bag/Core/Uitls/ClipShapes.dart';
 import 'package:bag/Core/Uitls/Constants.dart';
 import 'package:bag/Core/Widgets/CustomClipPath.dart';
+import 'package:bag/Feature/OnBordingView/Views/Widgets/CustomSkiper.dart';
 import 'package:bag/Feature/OnBordingView/Views/Widgets/ListOfOnBordingContinet.dart';
 import 'package:bag/Feature/OnBordingView/Views/Widgets/OnBordingLogo.dart';
 import 'package:bag/Feature/OnBordingView/Views/Widgets/onBordingBottom.dart';
@@ -51,6 +52,9 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
             CustomClipPath(
               clipHight: height,
               clipper: Container3Clipper(),
+            ),
+            CustomSkiper(
+              onTap: () {},
             ),
             OnBordingLogo(
               image: continte[index].imagepath!,

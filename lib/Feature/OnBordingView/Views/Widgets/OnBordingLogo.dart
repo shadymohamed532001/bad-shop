@@ -16,7 +16,7 @@ class OnBordingLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       right: MediaQuery.of(context).size.width * .02,
-      top: MediaQuery.of(context).size.width * .35,
+      top: MediaQuery.of(context).size.width * .31,
       child: Image.asset(
         image,
         width: width,
