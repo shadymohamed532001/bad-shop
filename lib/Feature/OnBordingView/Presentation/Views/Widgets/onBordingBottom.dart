@@ -1,7 +1,9 @@
+import 'package:bag/Core/Uitls/AppRoutes.dart';
 import 'package:bag/Core/Uitls/AppStyles.dart';
 import 'package:bag/Core/Uitls/Constants.dart';
-import 'package:bag/Feature/OnBordingView/Views/Widgets/ListOfOnBordingContinet.dart';
+import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/ListOfOnBordingContinet.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomOnBordBottom extends StatelessWidget {
   const CustomOnBordBottom({
@@ -16,13 +18,13 @@ class CustomOnBordBottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 50, top: 30),
-      height: 60,
+      // margin: const EdgeInsets.only(bottom: 30, top: 30),
+      height: 55,
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () {
           if (currnetIndex == continte.length - 1) {
-            // GoRouter.of(context).pushReplacement(AppRouter.KhomeView);
+            GoRouter.of(context).pushReplacement(AppRouter.KLoginView);
           }
           pageController.nextPage(
               duration: const Duration(microseconds: 100),

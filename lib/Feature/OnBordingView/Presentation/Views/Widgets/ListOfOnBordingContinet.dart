@@ -1,4 +1,4 @@
-import 'package:bag/Feature/OnBordingView/ViewModels/OnBordingModel.dart';
+import 'package:bag/Feature/OnBordingView/Presentation/ViewModels/OnBordingModel.dart';
 
 List<OnBordingContente> continte = [
   OnBordingContente(

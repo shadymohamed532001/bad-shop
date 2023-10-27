@@ -1,4 +1,4 @@
-import 'package:bag/Feature/OnBordingView/Views/Widgets/OnBordingViewBody.dart';
+import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/OnBordingViewBody.dart';
 import 'package:flutter/material.dart';
 
 class OnBordingView extends StatelessWidget {
