@@ -34,7 +34,10 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: TextFormField(
-        obscureText: !isShown,
+        onTapOutside: (Event) {
+          FocusManager.instance.primaryFocus?.unfocus();
+        },
+        obscureText: isShown,
         controller: widget.controller,
         validator: widget.validator,
         keyboardType: widget.keyboardType,
@@ -42,8 +45,14 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           suffixIcon: widget.isPassword
               ? IconButton(
                   icon: isShown
-                      ? const FaIcon(FontAwesomeIcons.eye)
-                      : const FaIcon(FontAwesomeIcons.eyeSlash),
+                      ? FaIcon(
+                          FontAwesomeIcons.eyeSlash,
+                          color: MyTheme.greyColor,
+                        )
+                      : FaIcon(
+                          FontAwesomeIcons.eye,
+                          color: MyTheme.greyColor,
+                        ),
                   onPressed: () {
                     setState(
                       () {

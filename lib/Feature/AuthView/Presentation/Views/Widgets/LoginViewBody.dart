@@ -1,5 +1,7 @@
 import 'package:bag/Core/Uitls/Constants.dart';
+import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/CustomTextFormField.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
 class LoginViewBody extends StatefulWidget {
@@ -17,6 +19,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   var passwordController = TextEditingController();
 
   int selectedButtonIndex = 0;
+  AutovalidateMode? autovalidateMode = AutovalidateMode.disabled;
+  bool isPasswordShow = true;
+  String errorMessage = '';
 
   @override
   void dispose() {
@@ -112,8 +117,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               ),
               Form(
                 key: formKey,
+                autovalidateMode: autovalidateMode,
                 child: Column(
-                  // crossAxisAlignment: CrossAxisAlignment.stretch,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(left: 16.0),
@@ -151,6 +157,16 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                               .copyWith(fontSize: 15)),
                     ),
                     CustomTextFormField(
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isPasswordShow = !isPasswordShow;
+                          });
+                        },
+                        icon: isPasswordShow
+                            ? const Icon((Icons.visibility_off))
+                            : const Icon(Icons.visibility),
+                      ),
                       isPassword: true,
                       hint: 'Min 8 Cyfr',
                       //   suffixIcon:  // (widget.isPassword)?
@@ -173,7 +189,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       //       );
                       //     },
                       //   ),
-                      keyboardType: TextInputType.number,
+                      keyboardType: TextInputType.visiblePassword,
                       controller: passwordController,
                       // viewModel.passwordController,
                       validator: (text) {
@@ -186,6 +202,63 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         return null;
                       },
                     ),
+                    InkWell(
+                      onTap: () {
+                        // Navigator.of(context)
+                        // .pushNamed(ForgetPassword.routeName);
+                      },
+                      child: Text(
+                        textAlign: TextAlign.right,
+                        'Forgot your password?',
+                        style: Theme.of(context)
+                            .textTheme
+                            .titleSmall!
+                            .copyWith(color: MyTheme.primaryColor),
+                      ),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.25,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        login();
+                      },
+                      style: ElevatedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 20),
+                          backgroundColor: MyTheme.primaryColor,
+                          shape: StadiumBorder(
+                              side: BorderSide(color: MyTheme.primaryColor))),
+                      child: Text('Sign in',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleMedium!
+                              .copyWith(color: MyTheme.whiteColor)),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Don’t have an account?',
+                          // AppLocalizations.of(context)!.do_not_have_an_account,
+                          style: Theme.of(context).textTheme.titleSmall,
+                        ),
+                        TextButton(
+                            onPressed: () {
+                              // Navigator.of(context)
+                              //     .pushNamed(RegisterScreen.routeName);
+                            },
+                            child: Text(
+                              'Sign Up',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .titleSmall!
+                                  .copyWith(
+                                    color: MyTheme.primaryColor,
+                                    decoration: TextDecoration.underline,
+                                  ),
+                            ))
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -194,5 +267,74 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         ),
       ),
     );
+  }
+
+  void login() async {
+    if (formKey.currentState!.validate() == true) {
+    } else {
+      autovalidateMode = AutovalidateMode.always;
+      setState(() {});
+    }
+    //   DialogUtils.showLoading(context, 'AppLocalizations.of(context)!.loading');
+    //   try {
+    //     final credential = await FirebaseAuth.instance
+    //         .signInWithEmailAndPassword(
+    //         email: emailController.text, password: passwordController.text);
+    //     var user = await FirebaseUtils.readUserFromFireStore(
+    //         credential.user?.uid ?? '');
+    //     if (user == null) {
+    //       return;
+    //     }
+    //     var authProvider = Provider.of<AuthProvider>(context, listen: false);
+    //     authProvider.updateUser(user);
+    //     // todo: hide loading
+    //     // todo: show message
+    //     DialogUtils.hideLoading(context);
+    //     DialogUtils.showMessage(
+    //         context, AppLocalizations.of(context)!.login_message_success,
+    //         title: AppLocalizations.of(context)!.success_title,
+    //         posActionName: AppLocalizations.of(context)!.ok,
+    //         barrierDismissible: false, posAction: () {
+    //       Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+    //     });
+    //   } on FirebaseAuthException catch (e) {
+    //     if (e.code == 'user-not-found') {
+    //       print('No user found for that email.');
+    //     } else if (e.code == 'wrong-password') {
+    //       print('Wrong password provided for that user.');
+    //     } else if (e.code == 'INVALID_LOGIN_CREDENTIALS') {
+    //       // todo: hide loading
+    //       // todo : show message
+    //       DialogUtils.hideLoading(context);
+    //       DialogUtils.showMessage(
+    //           context, AppLocalizations.of(context)!.login_message_error,
+    //           title: AppLocalizations.of(context)!.error_title,
+    //           posActionName: AppLocalizations.of(context)!.ok,
+    //           barrierDismissible: false);
+    //     }
+    //   } catch (e) {
+    //     // todo: hide loading
+    //     // todo : show messageAA
+    //     DialogUtils.hideLoading(context);
+    //     DialogUtils.showMessage(context, e.toString(),
+    //         title: AppLocalizations.of(context)!.error_title,
+    //         posActionName: AppLocalizations.of(context)!.ok,
+    //         barrierDismissible: false);
+    //
+    //     print(e);
+    //   }
+    // }
+  }
+
+  void validateEmail(String val) {
+    if (!EmailValidator.validate(val, true) && val.isNotEmpty) {
+      setState(() {
+        errorMessage = "Invalid Email Address";
+      });
+    } else {
+      setState(() {
+        errorMessage = "";
+      });
+    }
   }
 }
