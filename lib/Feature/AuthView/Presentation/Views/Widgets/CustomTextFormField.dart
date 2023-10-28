@@ -2,73 +2,61 @@
 
 import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 
-class CustomTextFormField extends StatefulWidget {
-  String hint;
-  TextEditingController controller;
-  TextInputType keyboardType;
-  String? Function(String?)? validator;
-  bool isPassword;
-  // static bool isPassword = false  ;
-  Widget? suffixIcon;
+class CustomTextFormFiled extends StatelessWidget {
+  const CustomTextFormFiled({
+    super.key,
+    this.onChanged,
+    this.onFieldSubmitted,
+    this.onSaved,
+    required this.hintText,
+    this.maxLine = 1,
+    this.filled,
+    this.fillColor,
+    this.controller,
+    required this.obscureText,
+    this.suffixIcon,
+    this.prefixIcon,
+    this.keyboardType,
+    this.validator,
+  });
 
-  CustomTextFormField(
-      {super.key,
-      required this.hint,
-      required this.keyboardType,
-      required this.controller,
-      required this.validator,
-      this.suffixIcon,
-      this.isPassword = false});
-
-  @override
-  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
-}
-
-class _CustomTextFormFieldState extends State<CustomTextFormField> {
-  bool isShown = true;
-
+  final Function(String)? onChanged;
+  final Function(String)? onFieldSubmitted;
+  final void Function(String?)? onSaved;
+  final String? Function(String?)? validator;
+  final String hintText;
+  final int? maxLine;
+  final bool obscureText;
+  final bool? filled;
+  final TextEditingController? controller;
+  final Color? fillColor;
+  final Widget? suffixIcon;
+  final Widget? prefixIcon;
+  final TextInputType? keyboardType;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16)
+          .copyWith(top: 16, bottom: 8),
       child: TextFormField(
         onTapOutside: (Event) {
           FocusManager.instance.primaryFocus?.unfocus();
         },
-        obscureText: isShown,
-        controller: widget.controller,
-        validator: widget.validator,
-        keyboardType: widget.keyboardType,
+        maxLines: maxLine,
+        obscureText: obscureText,
+        keyboardType: keyboardType,
+        controller: controller,
+        onChanged: onChanged,
+        onFieldSubmitted: onFieldSubmitted,
+        onSaved: onSaved,
+        validator: validator,
         decoration: InputDecoration(
-          suffixIcon: widget.isPassword
-              ? IconButton(
-                  icon: isShown
-                      ? FaIcon(
-                          FontAwesomeIcons.eyeSlash,
-                          color: MyTheme.greyColor,
-                        )
-                      : FaIcon(
-                          FontAwesomeIcons.eye,
-                          color: MyTheme.greyColor,
-                        ),
-                  onPressed: () {
-                    setState(
-                      () {
-                        isShown = !isShown;
-                      },
-                    );
-                  },
-                )
-              : null,
-          fillColor: MyTheme.greyColorBackGround,
+          suffixIcon: suffixIcon,
+          suffixIconColor: const Color.fromARGB(255, 101, 98, 98),
+          prefixIcon: prefixIcon,
           filled: true,
-          hintText: widget.hint,
-          hintStyle: Theme.of(context)
-              .textTheme
-              .titleSmall!
-              .copyWith(fontWeight: FontWeight.w400),
+          fillColor: MyTheme.greyColorBackGround,
           enabledBorder: buildOutlineInputBorder(
             width: 1,
           ),
@@ -81,6 +69,11 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           focusedErrorBorder: buildOutlineInputBorder(
             width: 2,
           ),
+          hintText: hintText,
+          hintStyle: Theme.of(context)
+              .textTheme
+              .titleSmall!
+              .copyWith(fontWeight: FontWeight.w400),
         ),
       ),
     );

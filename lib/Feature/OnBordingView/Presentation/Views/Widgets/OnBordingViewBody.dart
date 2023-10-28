@@ -57,7 +57,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
             ),
             CustomSkiper(
               onTap: () {
-                GoRouter.of(context).pushReplacement(AppRouter.KLoginView);
+                GoRouter.of(context).push(AppRouter.KLoginView);
               },
             ),
             OnBordingLogo(

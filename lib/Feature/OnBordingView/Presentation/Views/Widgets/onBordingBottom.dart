@@ -24,7 +24,7 @@ class CustomOnBordBottom extends StatelessWidget {
       child: ElevatedButton(
         onPressed: () {
           if (currnetIndex == continte.length - 1) {
-            GoRouter.of(context).pushReplacement(AppRouter.KLoginView);
+            GoRouter.of(context).push(AppRouter.KLoginView);
           }
           pageController.nextPage(
               duration: const Duration(microseconds: 100),
