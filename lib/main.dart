@@ -1,4 +1,5 @@
 import 'package:bag/Core/Uitls/AppRoutes.dart';
+import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,9 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.light().copyWith(
-        scaffoldBackgroundColor: const Color(0xffF4F6F5),
-      ),
+      theme: MyTheme.lightTheme,
       routerConfig: AppRouter.router,
     );
   }

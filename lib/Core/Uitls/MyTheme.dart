@@ -8,6 +8,7 @@ class MyTheme {
   static Color greyColorBackGround = const Color(0xffE2E3E2);
 
   static ThemeData lightTheme = ThemeData(
+    scaffoldBackgroundColor: const Color(0xffF4F6F5),
     appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent, elevation: 0, centerTitle: true),
     textTheme: TextTheme(
