@@ -143,7 +143,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     ),
                     CustomTextFormFiled(
                       obscureText: false,
-                      hintText: 'Ali mohamed',
+                      hintText: 'Name',
                       keyboardType: TextInputType.text,
                       controller: nameController,
                       validator: (text) {
@@ -282,7 +282,13 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         ),
                         TextButton(
                             onPressed: () {
-                              Navigator.pop(context);
+                              GoRouter.of(context)
+                                  .pushReplacement(AppRouter.KbookonBording);
+                              setState(() {
+                                setState(() {
+                                  selectedButtonIndex = 0;
+                                });
+                              });
                             },
                             child: Text(
                               'Sign In',

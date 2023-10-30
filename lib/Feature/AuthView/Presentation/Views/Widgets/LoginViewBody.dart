@@ -48,7 +48,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -92,9 +92,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(
-                      left: 122,
-                      top: 35,
+                    padding: EdgeInsets.only(
+                      left: MediaQuery.of(context).size.width * 0.285,
+                      top: MediaQuery.of(context).size.width * 0.08,
                     ),
                     child: Align(
                       widthFactor: 2.6,
@@ -243,6 +243,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         ),
                         TextButton(
                             onPressed: () {
+                              setState(() {
+                                selectedButtonIndex = 1;
+                              });
                               GoRouter.of(context)
                                   .pushReplacement(AppRouter.KSignUpView);
                             },
