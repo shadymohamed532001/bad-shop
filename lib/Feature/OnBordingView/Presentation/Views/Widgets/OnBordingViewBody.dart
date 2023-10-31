@@ -2,7 +2,7 @@
 
 import 'package:bag/Core/Uitls/AppRoutes.dart';
 import 'package:bag/Core/Uitls/ClipShapes.dart';
-import 'package:bag/Core/Uitls/Constants.dart';
+import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:bag/Core/Widgets/CustomClipPath.dart';
 import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/CustomSkiper.dart';
 import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/ListOfOnBordingContinet.dart';
@@ -109,7 +109,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                                       margin: const EdgeInsets.only(right: 5),
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
-                                        color: kPrimaryColor,
+                                        color: MyTheme.primaryColor,
                                       ),
                                     )),
                           ),

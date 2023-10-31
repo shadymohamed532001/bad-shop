@@ -109,7 +109,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         height: 3.3,
                         width: MediaQuery.of(context).size.width * .136,
                         decoration: BoxDecoration(
-                          color: kPrimaryColor,
+                          color: MyTheme.primaryColor,
                           borderRadius: BorderRadius.circular(50),
                         ),
                       ),

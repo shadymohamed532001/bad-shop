@@ -1,8 +1,18 @@
+import 'package:bag/Core/Uitls/ApiServices.dart';
 import 'package:bag/Core/Uitls/AppRoutes.dart';
+import 'package:bag/Core/Uitls/LocalServices.dart';
 import 'package:bag/Core/Uitls/MyTheme.dart';
+import 'package:bag/Core/Uitls/blocObserver.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  Bloc.observer = MyBlocObserver();
+  ApiServices.init();
+  LocalServices.Init();
+
   runApp(const MyApp());
 }
 
