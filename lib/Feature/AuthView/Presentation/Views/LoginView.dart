@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
+  static const String routeName = 'loginView';
 
   @override
   Widget build(BuildContext context) {

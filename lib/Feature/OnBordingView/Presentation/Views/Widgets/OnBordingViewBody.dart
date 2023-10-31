@@ -1,15 +1,14 @@
 // ignore_for_file: file_names
 
-import 'package:bag/Core/Uitls/AppRoutes.dart';
 import 'package:bag/Core/Uitls/ClipShapes.dart';
 import 'package:bag/Core/Uitls/MyTheme.dart';
+import 'package:bag/Core/Uitls/functions.dart';
 import 'package:bag/Core/Widgets/CustomClipPath.dart';
 import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/CustomSkiper.dart';
 import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/ListOfOnBordingContinet.dart';
 import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/OnBordingLogo.dart';
 import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/onBordingBottom.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OnboardingViewBody extends StatefulWidget {
@@ -57,7 +56,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
             ),
             CustomSkiper(
               onTap: () {
-                GoRouter.of(context).push(AppRouter.KLoginView);
+                Submited(context);
               },
             ),
             OnBordingLogo(

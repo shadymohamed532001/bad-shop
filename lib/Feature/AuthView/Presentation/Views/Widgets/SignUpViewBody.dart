@@ -1,13 +1,15 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:async';
 
-import 'package:bag/Core/Uitls/AppRoutes.dart';
 import 'package:bag/Core/Uitls/Constants.dart';
 import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:bag/Core/Uitls/assets.dart';
+import 'package:bag/Core/Uitls/functions.dart';
+import 'package:bag/Feature/AuthView/Presentation/Views/LoginView.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/CustomTextFormField.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 // ignore: must_be_immutable
 class SignUpViewBody extends StatefulWidget {
@@ -282,8 +284,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         ),
                         TextButton(
                             onPressed: () {
-                              GoRouter.of(context)
-                                  .pushReplacement(AppRouter.KbookonBording);
+                              PushAndFinsh(context,
+                                  PageName: LoginView.routeName);
                               setState(() {
                                 setState(() {
                                   selectedButtonIndex = 0;
@@ -313,8 +315,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
   }
 
   void NavigationToSignIn(BuildContext context) {
-    Timer(const Duration(milliseconds: 200), () {
-      GoRouter.of(context).pushReplacement(AppRouter.KLoginView);
+    Timer(const Duration(milliseconds: 120), () {
+      PushAndFinsh(context, PageName: LoginView.routeName);
     });
   }
 

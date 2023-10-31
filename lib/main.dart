@@ -1,8 +1,13 @@
 import 'package:bag/Core/Uitls/ApiServices.dart';
-import 'package:bag/Core/Uitls/AppRoutes.dart';
+import 'package:bag/Core/Uitls/Constants.dart';
 import 'package:bag/Core/Uitls/LocalServices.dart';
 import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:bag/Core/Uitls/blocObserver.dart';
+import 'package:bag/Feature/AuthView/Presentation/Views/LoginView.dart';
+import 'package:bag/Feature/AuthView/Presentation/Views/SignUpView.dart';
+import 'package:bag/Feature/Home/presentation/View/HomeView.dart';
+import 'package:bag/Feature/OnBordingView/Presentation/Views/OnBordingView.dart';
+import 'package:bag/Feature/SplashView/Presntation/Views/SplashView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,21 +16,62 @@ void main() async {
 
   Bloc.observer = MyBlocObserver();
   ApiServices.init();
-  LocalServices.Init();
+  await LocalServices.Init();
 
-  runApp(const MyApp());
+  OnBording = LocalServices.getData(key: 'onbording');
+  token = LocalServices.getData(key: 'token');
+
+  Widget widgetInit;
+
+  if (OnBording != null) {
+    if (token != null) {
+      widgetInit = const HomeView();
+    } else {
+      widgetInit = const LoginView();
+    }
+  } else {
+    widgetInit = const OnBordingView();
+  }
+
+  runApp(MyApp(initialWidget: widgetInit));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  final Widget initialWidget;
 
-  // This widget is the root of your application.
+  const MyApp({Key? key, required this.initialWidget}) : super(key: key);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Simulate a loading process
+    Future.delayed(const Duration(seconds: 2), () {
+      setState(() {
+        isLoading = false;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
+      routes: {
+        LoginView.routeName: (context) => const LoginView(),
+        HomeView.routeName: (context) => const HomeView(),
+        SignUpView.routeName: (context) => const SignUpView(),
+        OnBordingView.routeName: (context) => const OnBordingView(),
+      },
       debugShowCheckedModeBanner: false,
       theme: MyTheme.lightTheme,
-      routerConfig: AppRouter.router,
+      home: isLoading ? const SplashView() : widget.initialWidget,
     );
   }
 }

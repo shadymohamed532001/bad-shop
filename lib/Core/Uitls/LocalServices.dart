@@ -1,8 +1,24 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalServices {
-  static SharedPreferences? sharedPreferences;
+  static late SharedPreferences sharedPreferences;
   static Init() async {
     sharedPreferences = await SharedPreferences.getInstance();
+  }
+
+  static dynamic getData({required String key}) {
+    return sharedPreferences.get(key);
+  }
+
+  static Future<bool> saveData({
+    required String key,
+    required dynamic value,
+  }) async {
+    if (value is String) return await sharedPreferences.setString(key, value);
+    if (value is int) return await sharedPreferences.setInt(key, value);
+    if (value is bool) return await sharedPreferences.setBool(key, value);
+    return await sharedPreferences.setDouble(key, value);
   }
 }

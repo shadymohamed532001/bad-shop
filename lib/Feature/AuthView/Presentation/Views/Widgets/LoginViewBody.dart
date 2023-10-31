@@ -1,13 +1,19 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, constant_identifier_names
 
 import 'dart:async';
 
 import 'package:bag/Core/Uitls/AppRoutes.dart';
 import 'package:bag/Core/Uitls/Constants.dart';
+import 'package:bag/Core/Uitls/LocalServices.dart';
 import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:bag/Core/Uitls/assets.dart';
+import 'package:bag/Core/Uitls/functions.dart';
+import 'package:bag/Core/Widgets/CustomBottom.dart';
+import 'package:bag/Feature/AuthView/Presentation/Views/SignUpView.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/CustomTextFormField.dart';
+import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/ShowsToustColor.dart';
 import 'package:bag/Feature/AuthView/Presentation/manager/Cubites/LoginCubite/cubit/login_cubit.dart';
+import 'package:bag/Feature/Home/presentation/View/HomeView.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,24 +51,20 @@ class _LoginViewBodyState extends State<LoginViewBody> {
       listener: (context, state) {
         if (state is LoginSucess) {
           if (state.bagLoginModel.status == true) {
-            Fluttertoast.showToast(
-              msg: '${state.bagLoginModel.message}',
-              toastLength: Toast.LENGTH_LONG,
-              gravity: ToastGravity.SNACKBAR,
-              timeInSecForIosWeb: 4,
-              backgroundColor: MyTheme.primaryColor,
-              textColor: MyTheme.whiteColor,
-              fontSize: 16.0,
+            ShowTouster(
+              massage: state.bagLoginModel.message!,
+              state: ToustState.SUCCESS,
             );
+            LocalServices.saveData(
+                    key: 'token', value: state.bagLoginModel.data!.token)
+                .then((value) {
+              PushAndFinsh(context, PageName: HomeView.routeName);
+            });
           } else {
-            Fluttertoast.showToast(
-                msg: '${state.bagLoginModel.message}',
-                toastLength: Toast.LENGTH_LONG,
-                gravity: ToastGravity.TOP_RIGHT,
-                timeInSecForIosWeb: 4,
-                backgroundColor: MyTheme.RedColor,
-                textColor: MyTheme.whiteColor,
-                fontSize: 16.0);
+            ShowTouster(
+              massage: state.bagLoginModel.message!,
+              state: ToustState.ERROR,
+            );
           }
         }
       },
@@ -219,7 +221,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                                 ? const Icon((Icons.visibility_off))
                                 : const Icon(Icons.visibility),
                           ),
-                          hintText: 'Min 8 Cyfr',
+                          hintText: 'Min 6 Cyfr',
                           keyboardType: TextInputType.visiblePassword,
                           controller: passwordController,
                           validator: (text) {
@@ -279,8 +281,8 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                                   setState(() {
                                     selectedButtonIndex = 1;
                                   });
-                                  GoRouter.of(context)
-                                      .pushReplacement(AppRouter.KSignUpView);
+                                  PushAndFinsh(context,
+                                      PageName: SignUpView.routeName);
                                 },
                                 child: Text(
                                   'Sign Up',
@@ -307,8 +309,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   }
 
   void NavigationToSignUP(BuildContext context) {
-    Timer(const Duration(milliseconds: 200), () {
-      GoRouter.of(context).push(AppRouter.KSignUpView);
+    Timer(const Duration(milliseconds: 120), () {
+      PushOnly(
+        context,
+        PageName: SignUpView.routeName,
+      );
     });
   }
 
@@ -322,34 +327,5 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         errorMessage = "";
       });
     }
-  }
-}
-
-class CustomBottom extends StatelessWidget {
-  const CustomBottom({
-    super.key,
-    required this.onPressed,
-    this.backgroundColor,
-    required this.bottomtext,
-  });
-
-  final void Function() onPressed;
-  final Color? backgroundColor;
-  final String bottomtext;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          backgroundColor: backgroundColor,
-          shape: StadiumBorder(side: BorderSide(color: MyTheme.primaryColor))),
-      child: Text(bottomtext,
-          style: Theme.of(context)
-              .textTheme
-              .titleMedium!
-              .copyWith(color: MyTheme.whiteColor)),
-    );
   }
 }

@@ -1,11 +1,9 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:bag/Core/Uitls/AppRoutes.dart';
 import 'package:bag/Core/Uitls/ClipShapes.dart';
 import 'package:bag/Core/Uitls/assets.dart';
 import 'package:bag/Core/Widgets/CustomClipPath.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -20,9 +18,15 @@ class _SplashViewBodyState extends State<SplashViewBody>
   late Animation<double> animation;
   @override
   void initState() {
-    NavigateToOnBording();
     tweenanimation();
+
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
   }
 
   @override
@@ -62,11 +66,5 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
     animation = Tween<double>(begin: 0, end: 1.8).animate(animationController);
     animationController.forward();
-  }
-
-  void NavigateToOnBording() {
-    Future.delayed(const Duration(seconds: 2), () {
-      GoRouter.of(context).push(AppRouter.KbookonBording);
-    });
   }
 }
