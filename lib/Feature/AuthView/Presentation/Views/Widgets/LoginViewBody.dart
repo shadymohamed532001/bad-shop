@@ -245,12 +245,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           bottomtext: 'Sign in',
                           onPressed: () {
                             if (formKey.currentState!.validate() == true) {
-                              BlocProvider.of<LoginCubit>(context).LoginUser(
-                                Email: emailController.text,
-                                password: passwordController.text,
-                                lang: 'en',
-                              );
-                              print('Login Sucessfuly');
+                              LoginUser(context);
                             } else {
                               autovalidateMode = AutovalidateMode.always;
                               setState(() {});
@@ -295,6 +290,14 @@ class _LoginViewBodyState extends State<LoginViewBody> {
           ),
         );
       },
+    );
+  }
+
+  void LoginUser(BuildContext context) {
+    BlocProvider.of<LoginCubit>(context).LoginUser(
+      Email: emailController.text,
+      password: passwordController.text,
+      lang: 'en',
     );
   }
 
