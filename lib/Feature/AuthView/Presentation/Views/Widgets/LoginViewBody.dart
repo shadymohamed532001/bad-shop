@@ -45,8 +45,19 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   Widget build(BuildContext context) {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
-        if (state is LoginSucess) {
+        if (state is LoginLoading) {
+          // show the CircularProgressIndicator widget
+          showDialog(
+              context: context,
+              builder: (_) => Center(
+                    child: CircularProgressIndicator(
+                      color: MyTheme.whiteColor,
+                    ),
+                  ));
+        } else if (state is LoginSucess) {
           if (state.bagLoginModel.status == true) {
+            Navigator.of(context)
+                .pop(); // close the dialog if successfully logged in
             ShowTouster(
               massage: state.bagLoginModel.message!,
               state: ToustState.SUCCESS,
@@ -57,6 +68,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               PushAndFinsh(context, PageName: HomeView.routeName);
             });
           } else {
+            Navigator.of(context).pop(); // close the dialog if login fails
             ShowTouster(
               massage: state.bagLoginModel.message!,
               state: ToustState.ERROR,
@@ -65,6 +77,14 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         }
       },
       builder: (context, state) {
+        // if (state is LoginLoading) {
+        //   return Center(
+        //     child: CircularProgressIndicator(
+        //       color: MyTheme.primaryColor,
+        //       backgroundColor: Colors.transparent,
+        //     ),
+        //   );
+        // }
         var Loginubite = BlocProvider.of<LoginCubit>(context);
         return Scaffold(
           appBar: AppBar(

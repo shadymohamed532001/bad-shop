@@ -56,8 +56,19 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
-        if (state is RegisterSucess) {
+        if (state is RegisterLoading) {
+          // show the CircularProgressIndicator widget
+          showDialog(
+              context: context,
+              builder: (_) => Center(
+                    child: CircularProgressIndicator(
+                      color: MyTheme.whiteColor,
+                    ),
+                  ));
+        } else if (state is RegisterSucess) {
           if (state.bagRegisterModel.status == true) {
+            Navigator.of(context)
+                .pop(); // close the dialog if successfully logged in
             ShowTouster(
               massage: state.bagRegisterModel.message!,
               state: ToustState.SUCCESS,
@@ -68,6 +79,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               PushAndFinsh(context, PageName: HomeView.routeName);
             });
           } else {
+            Navigator.of(context).pop(); // close the dialog if login fails
             ShowTouster(
               massage: state.bagRegisterModel.message!,
               state: ToustState.ERROR,

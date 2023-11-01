@@ -33,6 +33,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       emit(RegisterSucess(bagRegisterModel: bagAuthModel!));
     }).catchError((error) {
       print(error.toString());
+      emit(RegisterError(error: error.toString()));
     });
   }
 
