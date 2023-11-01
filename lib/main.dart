@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:bag/Core/Uitls/ApiServices.dart';
 import 'package:bag/Core/Uitls/Constants.dart';
 import 'package:bag/Core/Uitls/LocalServices.dart';

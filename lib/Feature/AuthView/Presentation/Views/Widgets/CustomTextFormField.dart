@@ -38,7 +38,7 @@ class CustomTextFormFiled extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16)
-          .copyWith(top: 16, bottom: 8),
+          .copyWith(top: 12, bottom: 8),
       child: TextFormField(
         onTapOutside: (Event) {
           FocusManager.instance.primaryFocus?.unfocus();

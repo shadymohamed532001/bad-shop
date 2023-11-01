@@ -6,9 +6,9 @@ sealed class RegisterState {}
 final class RegisterInitial extends RegisterState {}
 
 final class RegisterSucess extends RegisterState {
-  final BagAuthModel bagAuthModel;
+  final BagAuthModel bagRegisterModel;
 
-  RegisterSucess({required this.bagAuthModel});
+  RegisterSucess({required this.bagRegisterModel});
 }
 
 final class RegisterLoading extends RegisterState {}

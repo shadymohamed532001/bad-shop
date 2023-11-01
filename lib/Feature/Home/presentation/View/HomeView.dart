@@ -1,3 +1,4 @@
+import 'package:bag/Core/Uitls/assets.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/HomeViewBody.dart';
 import 'package:flutter/material.dart';
 
@@ -7,8 +8,15 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: HomeViewBody(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Image.asset(
+          AppAssets.applogoBlack,
+          height: 50,
+          width: 50,
+        ),
+      ),
+      body: const HomeViewBody(),
     );
   }
 }

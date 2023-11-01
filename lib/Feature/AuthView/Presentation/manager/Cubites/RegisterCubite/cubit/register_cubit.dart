@@ -30,7 +30,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       },
     ).then((value) {
       bagAuthModel = BagAuthModel.fromJson(value.data);
-      emit(RegisterSucess(bagAuthModel: bagAuthModel!));
+      emit(RegisterSucess(bagRegisterModel: bagAuthModel!));
     }).catchError((error) {
       print(error.toString());
     });

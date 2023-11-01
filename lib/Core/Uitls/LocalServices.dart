@@ -21,4 +21,8 @@ class LocalServices {
     if (value is bool) return await sharedPreferences.setBool(key, value);
     return await sharedPreferences.setDouble(key, value);
   }
+
+  static Future<bool> removeData({required String key}) {
+    return sharedPreferences.remove(key);
+  }
 }

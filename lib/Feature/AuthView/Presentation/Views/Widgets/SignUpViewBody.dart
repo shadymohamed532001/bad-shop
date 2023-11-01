@@ -3,13 +3,16 @@
 import 'dart:async';
 
 import 'package:bag/Core/Uitls/Constants.dart';
+import 'package:bag/Core/Uitls/LocalServices.dart';
 import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:bag/Core/Uitls/assets.dart';
 import 'package:bag/Core/Uitls/functions.dart';
 import 'package:bag/Core/Widgets/CustomBottom.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/LoginView.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/CustomTextFormField.dart';
+import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/ShowsToustColor.dart';
 import 'package:bag/Feature/AuthView/Presentation/manager/Cubites/RegisterCubite/cubit/register_cubit.dart';
+import 'package:bag/Feature/Home/presentation/View/HomeView.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,7 +56,24 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
-        // TODO: implement listener
+        if (state is RegisterSucess) {
+          if (state.bagRegisterModel.status == true) {
+            ShowTouster(
+              massage: state.bagRegisterModel.message!,
+              state: ToustState.SUCCESS,
+            );
+            LocalServices.saveData(
+                    key: 'token', value: state.bagRegisterModel.data!.token)
+                .then((value) {
+              PushAndFinsh(context, PageName: HomeView.routeName);
+            });
+          } else {
+            ShowTouster(
+              massage: state.bagRegisterModel.message!,
+              state: ToustState.ERROR,
+            );
+          }
+        }
       },
       builder: (context, state) {
         return Scaffold(

@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -10,7 +12,7 @@ void ShowTouster({
       msg: massage,
       toastLength: Toast.LENGTH_LONG,
       gravity: ToastGravity.TOP_RIGHT,
-      timeInSecForIosWeb: 4,
+      timeInSecForIosWeb: 3,
       backgroundColor: ShowsToustColor(state),
       textColor: MyTheme.whiteColor,
       fontSize: 16.0);
