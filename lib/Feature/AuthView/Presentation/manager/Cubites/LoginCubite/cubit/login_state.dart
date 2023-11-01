@@ -6,7 +6,7 @@ sealed class LoginState {}
 final class LoginInitial extends LoginState {}
 
 final class LoginSucess extends LoginState {
-  final BagLoginModel bagLoginModel;
+  final BagAuthModel bagLoginModel;
 
   LoginSucess({required this.bagLoginModel});
 }
@@ -18,3 +18,5 @@ final class LoginErorr extends LoginState {
 
   LoginErorr({required this.error});
 }
+
+final class LoginChangePasswordVisiablity extends LoginState {}

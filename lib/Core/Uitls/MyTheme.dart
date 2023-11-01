@@ -5,7 +5,7 @@ class MyTheme {
   static Color blackColor = const Color(0xff1E1E1E);
   static Color whiteColor = const Color(0xffFFFFFF);
   static Color greyColor = const Color(0xffA7A6A5);
-  static Color RedColor = const Color(0xFFA51919);
+  static Color RedColor = const Color(0xFFBE2B21);
 
   static Color greyColorBackGround = const Color(0xffE2E3E2);
 

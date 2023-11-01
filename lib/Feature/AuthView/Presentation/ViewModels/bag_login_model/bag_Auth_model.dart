@@ -1,13 +1,13 @@
 import 'data.dart';
 
-class BagLoginModel {
+class BagAuthModel {
   bool? status;
   String? message;
   Data? data;
 
-  BagLoginModel({this.status, this.message, this.data});
+  BagAuthModel({this.status, this.message, this.data});
 
-  factory BagLoginModel.fromJson(Map<String, dynamic> json) => BagLoginModel(
+  factory BagAuthModel.fromJson(Map<String, dynamic> json) => BagAuthModel(
         status: json['status'] as bool?,
         message: json['message'] as String?,
         data: json['data'] == null

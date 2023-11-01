@@ -10,6 +10,14 @@ class HomeViewBody extends StatefulWidget {
 class _HomeViewBodyState extends State<HomeViewBody> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Column(
+      children: [
+        Center(
+          child: Text(
+            'HomeView',
+          ),
+        )
+      ],
+    );
   }
 }

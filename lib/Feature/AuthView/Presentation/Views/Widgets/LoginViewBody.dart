@@ -2,7 +2,6 @@
 
 import 'dart:async';
 
-import 'package:bag/Core/Uitls/AppRoutes.dart';
 import 'package:bag/Core/Uitls/Constants.dart';
 import 'package:bag/Core/Uitls/LocalServices.dart';
 import 'package:bag/Core/Uitls/MyTheme.dart';
@@ -17,8 +16,6 @@ import 'package:bag/Feature/Home/presentation/View/HomeView.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:go_router/go_router.dart';
 
 class LoginViewBody extends StatefulWidget {
   const LoginViewBody({super.key});
@@ -35,7 +32,6 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   var passwordController = TextEditingController();
 
   AutovalidateMode? autovalidateMode = AutovalidateMode.disabled;
-  bool isPasswordShow = true;
   String errorMessage = '';
 
   @override
@@ -69,6 +65,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         }
       },
       builder: (context, state) {
+        var Loginubite = BlocProvider.of<LoginCubit>(context);
         return Scaffold(
           appBar: AppBar(
             automaticallyImplyLeading: false,
@@ -185,21 +182,17 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 26),
-                          child: SizedBox(
-                            height: 15,
-                            width: double.infinity,
-                            child: Text(
-                              errorMessage,
-                              style: const TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                color: Color.fromARGB(255, 199, 47, 36),
-                              ),
+                          child: Text(
+                            errorMessage,
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                              color: MyTheme.RedColor,
                             ),
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.02,
+                          height: MediaQuery.of(context).size.height * 0.003,
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 16.0),
@@ -210,16 +203,13 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                                   .copyWith(fontSize: 15)),
                         ),
                         CustomTextFormFiled(
-                          obscureText: isPasswordShow,
+                          obscureText: Loginubite.isPasswordShow,
                           suffixIcon: IconButton(
                             onPressed: () {
-                              setState(() {
-                                isPasswordShow = !isPasswordShow;
-                              });
+                              BlocProvider.of<LoginCubit>(context)
+                                  .ChangepasswordVisiability();
                             },
-                            icon: isPasswordShow
-                                ? const Icon((Icons.visibility_off))
-                                : const Icon(Icons.visibility),
+                            icon: Loginubite.icon,
                           ),
                           hintText: 'Min 6 Cyfr',
                           keyboardType: TextInputType.visiblePassword,
