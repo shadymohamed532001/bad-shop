@@ -5,10 +5,8 @@ import 'dart:async';
 import 'package:bag/Core/Uitls/Constants.dart';
 import 'package:bag/Core/Uitls/LocalServices.dart';
 import 'package:bag/Core/Uitls/MyTheme.dart';
-import 'package:bag/Core/Uitls/assets.dart';
 import 'package:bag/Core/Uitls/functions.dart';
 import 'package:bag/Core/Widgets/CustomBottom.dart';
-import 'package:bag/Feature/AuthView/Presentation/Views/SignUpView.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/CustomTextFormField.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/ShowsToustColor.dart';
 import 'package:bag/Feature/AuthView/Presentation/manager/Cubites/LoginCubite/cubit/login_cubit.dart';
@@ -86,226 +84,216 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         //   );
         // }
         var Loginubite = BlocProvider.of<LoginCubit>(context);
-        return Scaffold(
-          appBar: AppBar(
-            automaticallyImplyLeading: false,
-            title: Image.asset(
-              AppAssets.applogoBlack,
-              width: 50,
-              height: 50,
-            ),
-          ),
-          body: Padding(
-            padding: const EdgeInsets.all(16),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Stack(
+        return Padding(
+          padding: const EdgeInsets.all(16),
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                //   Stack(
+                //     children: [
+                //       Row(
+                //         mainAxisAlignment: MainAxisAlignment.center,
+                //         children: [
+                //           TextButton(
+                //             onPressed: () {
+                //               setState(() {
+                //                 selectedButtonIndex = 0;
+                //               });
+                //             },
+                //             child: Text(
+                //               'SIGN IN',
+                //               style: Theme.of(context)
+                //                   .textTheme
+                //                   .titleMedium!
+                //                   .copyWith(fontSize: 14),
+                //             ),
+                //           ),
+                //           const SizedBox(
+                //             width: 20,
+                //           ),
+                //           TextButton(
+                //             onPressed: () async {
+                //               setState(() {
+                //                 selectedButtonIndex = 1;
+                //               });
+                //               NavigationToSignUP(context);
+                //             },
+                //             child: Text(
+                //               'SIGN UP',
+                //               style: Theme.of(context)
+                //                   .textTheme
+                //                   .titleMedium!
+                //                   .copyWith(fontSize: 14),
+                //             ),
+                //           ),
+                //         ],
+                //       ),
+                //       Padding(
+                //         padding: EdgeInsets.only(
+                //           left: MediaQuery.of(context).size.width * 0.285,
+                //           top: MediaQuery.of(context).size.width * 0.08,
+                //         ),
+                //         child: Align(
+                //           widthFactor: 2.6,
+                //           alignment: selectedButtonIndex == 1
+                //               ? Alignment.bottomRight
+                //               : Alignment.bottomLeft,
+                //           child: Container(
+                //             height: 3.3,
+                //             width: MediaQuery.of(context).size.width * .136,
+                //             decoration: BoxDecoration(
+                //               color: MyTheme.primaryColor,
+                //               borderRadius: BorderRadius.circular(50),
+                //             ),
+                //           ),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
+                ),
+                Text(
+                  'SIGN IN',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.06,
+                ),
+                Form(
+                  key: formKey,
+                  autovalidateMode: autovalidateMode,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          TextButton(
-                            onPressed: () {
-                              setState(() {
-                                selectedButtonIndex = 0;
-                              });
-                            },
-                            child: Text(
-                              'SIGN IN',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium!
-                                  .copyWith(fontSize: 14),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          TextButton(
-                            onPressed: () async {
-                              setState(() {
-                                selectedButtonIndex = 1;
-                              });
-                              NavigationToSignUP(context);
-                            },
-                            child: Text(
-                              'SIGN UP',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium!
-                                  .copyWith(fontSize: 14),
-                            ),
-                          ),
-                        ],
-                      ),
                       Padding(
-                        padding: EdgeInsets.only(
-                          left: MediaQuery.of(context).size.width * 0.285,
-                          top: MediaQuery.of(context).size.width * 0.08,
-                        ),
-                        child: Align(
-                          widthFactor: 2.6,
-                          alignment: selectedButtonIndex == 1
-                              ? Alignment.bottomRight
-                              : Alignment.bottomLeft,
-                          child: Container(
-                            height: 3.3,
-                            width: MediaQuery.of(context).size.width * .136,
-                            decoration: BoxDecoration(
-                              color: MyTheme.primaryColor,
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.03,
-                  ),
-                  Text(
-                    'SIGN IN',
-                    style: Theme.of(context).textTheme.titleLarge,
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.06,
-                  ),
-                  Form(
-                    key: formKey,
-                    autovalidateMode: autovalidateMode,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 16.0),
-                          child: Text('Email',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleSmall!
-                                  .copyWith(fontSize: 15)),
-                        ),
-                        CustomTextFormFiled(
-                          onChanged: (value) {
-                            validateEmail(value);
-                          },
-                          obscureText: false,
-                          hintText: 'Patient@self.com',
-                          keyboardType: TextInputType.emailAddress,
-                          controller: emailController,
-                          validator: (text) {
-                            if (text == null || text.trim().isEmpty) {
-                              return 'Please enter your email address';
-                            }
-                            return null;
-                          },
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 26),
-                          child: Text(
-                            errorMessage,
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w400,
-                              color: MyTheme.RedColor,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.003,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 16.0),
-                          child: Text('Password',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleSmall!
-                                  .copyWith(fontSize: 15)),
-                        ),
-                        CustomTextFormFiled(
-                          obscureText: Loginubite.isPasswordShow,
-                          suffixIcon: IconButton(
-                            onPressed: () {
-                              BlocProvider.of<LoginCubit>(context)
-                                  .ChangepasswordVisiability();
-                            },
-                            icon: Loginubite.icon,
-                          ),
-                          hintText: 'Min 6 Cyfr',
-                          keyboardType: TextInputType.visiblePassword,
-                          controller: passwordController,
-                          validator: (text) {
-                            if (text == null || text.trim().isEmpty) {
-                              return 'Please enter your password';
-                            }
-                            if (text.length < 6) {
-                              return 'Password 8 chars at least';
-                            }
-                            return null;
-                          },
-                        ),
-                        InkWell(
-                          onTap: () {
-                            // Navigator.of(context)
-                            // .pushNamed(ForgetPassword.routeName);
-                          },
-                          child: Text(
-                            textAlign: TextAlign.right,
-                            'Forgot your password?',
+                        padding: const EdgeInsets.only(left: 16.0),
+                        child: Text('Email',
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall!
-                                .copyWith(color: MyTheme.primaryColor),
+                                .copyWith(fontSize: 15)),
+                      ),
+                      CustomTextFormFiled(
+                        onChanged: (value) {
+                          validateEmail(value);
+                        },
+                        obscureText: false,
+                        hintText: 'Patient@self.com',
+                        keyboardType: TextInputType.emailAddress,
+                        controller: emailController,
+                        validator: (text) {
+                          if (text == null || text.trim().isEmpty) {
+                            return 'Please enter your email address';
+                          }
+                          return null;
+                        },
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 26),
+                        child: Text(
+                          errorMessage,
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                            color: MyTheme.RedColor,
                           ),
                         ),
-                        SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.25,
-                        ),
-                        CustomBottom(
-                          bottomtext: 'Sign in',
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.003,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16.0),
+                        child: Text('Password',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .copyWith(fontSize: 15)),
+                      ),
+                      CustomTextFormFiled(
+                        obscureText: Loginubite.isPasswordShow,
+                        suffixIcon: IconButton(
                           onPressed: () {
-                            if (formKey.currentState!.validate() == true) {
-                              LoginUser(context);
-                            } else {
-                              autovalidateMode = AutovalidateMode.always;
-                              setState(() {});
-                            }
+                            BlocProvider.of<LoginCubit>(context)
+                                .ChangepasswordVisiability();
                           },
-                          backgroundColor: MyTheme.primaryColor,
+                          icon: Loginubite.icon,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Don’t have an account?',
-                              // AppLocalizations.of(context)!.do_not_have_an_account,
-                              style: Theme.of(context).textTheme.titleSmall,
-                            ),
-                            TextButton(
-                                onPressed: () {
-                                  setState(() {
-                                    selectedButtonIndex = 1;
-                                  });
-                                  PushAndFinsh(context,
-                                      PageName: SignUpView.routeName);
-                                },
-                                child: Text(
-                                  'Sign Up',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleSmall!
-                                      .copyWith(
-                                        color: MyTheme.primaryColor,
-                                        decoration: TextDecoration.underline,
-                                      ),
-                                ))
-                          ],
+                        hintText: 'Min 6 Cyfr',
+                        keyboardType: TextInputType.visiblePassword,
+                        controller: passwordController,
+                        validator: (text) {
+                          if (text == null || text.trim().isEmpty) {
+                            return 'Please enter your password';
+                          }
+                          if (text.length < 6) {
+                            return 'Password 8 chars at least';
+                          }
+                          return null;
+                        },
+                      ),
+                      InkWell(
+                        onTap: () {
+                          // Navigator.of(context)
+                          // .pushNamed(ForgetPassword.routeName);
+                        },
+                        child: Text(
+                          textAlign: TextAlign.right,
+                          'Forgot your password?',
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall!
+                              .copyWith(color: MyTheme.primaryColor),
                         ),
-                      ],
-                    ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.25,
+                      ),
+                      CustomBottom(
+                        bottomtext: 'Sign in',
+                        onPressed: () {
+                          if (formKey.currentState!.validate() == true) {
+                            LoginUser(context);
+                          } else {
+                            autovalidateMode = AutovalidateMode.always;
+                            setState(() {});
+                          }
+                        },
+                        backgroundColor: MyTheme.primaryColor,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Don’t have an account?',
+                            // AppLocalizations.of(context)!.do_not_have_an_account,
+                            style: Theme.of(context).textTheme.titleSmall,
+                          ),
+                          TextButton(
+                              onPressed: () {
+                                setState(() {
+                                  selectedButtonIndex = 1;
+                                });
+                                // PushAndFinsh(context,
+                                //     PageName: SignUpView.routeName);
+                              },
+                              child: Text(
+                                'Sign Up',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleSmall!
+                                    .copyWith(
+                                      color: MyTheme.primaryColor,
+                                      decoration: TextDecoration.underline,
+                                    ),
+                              ))
+                        ],
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         );
@@ -321,14 +309,14 @@ class _LoginViewBodyState extends State<LoginViewBody> {
     );
   }
 
-  void NavigationToSignUP(BuildContext context) {
-    Timer(const Duration(milliseconds: 120), () {
-      PushOnly(
-        context,
-        PageName: SignUpView.routeName,
-      );
-    });
-  }
+  // void NavigationToSignUP(BuildContext context) {
+  //   Timer(const Duration(milliseconds: 120), () {
+  //     PushOnly(
+  //       context,
+  //       PageName: SignUpView.routeName,
+  //     );
+  //   });
+  // }
 
   void validateEmail(String val) {
     if (!EmailValidator.validate(val, true) && val.isNotEmpty) {

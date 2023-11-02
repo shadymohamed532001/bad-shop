@@ -18,10 +18,12 @@ class RegisterCubit extends Cubit<RegisterState> {
     required String email,
     required String password,
     required String phone,
+    String? lang,
   }) async {
     emit(RegisterLoading());
     await ApiServices.PostData(
       endpoint: RegisterendPoint,
+      lang: lang ?? 'en',
       data: {
         'name': name,
         'email': email,

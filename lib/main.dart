@@ -5,11 +5,12 @@ import 'package:bag/Core/Uitls/Constants.dart';
 import 'package:bag/Core/Uitls/LocalServices.dart';
 import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:bag/Core/Uitls/blocObserver.dart';
-import 'package:bag/Feature/AuthView/Presentation/Views/LoginView.dart';
-import 'package:bag/Feature/AuthView/Presentation/Views/SignUpView.dart';
+
 import 'package:bag/Feature/Home/presentation/View/HomeView.dart';
 import 'package:bag/Feature/OnBordingView/Presentation/Views/OnBordingView.dart';
+import 'package:bag/AuthViewBody.dart';
 import 'package:bag/Feature/SplashView/Presntation/Views/SplashView.dart';
+// import 'package:bag/try.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,7 +30,7 @@ void main() async {
     if (token != null) {
       widgetInit = const HomeView();
     } else {
-      widgetInit = const LoginView();
+      widgetInit = AuthViewBody();
     }
   } else {
     widgetInit = const OnBordingView();
@@ -66,13 +67,13 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        LoginView.routeName: (context) => const LoginView(),
         HomeView.routeName: (context) => const HomeView(),
-        SignUpView.routeName: (context) => const SignUpView(),
+        AuthViewBody.routeName: (context) => AuthViewBody(),
         OnBordingView.routeName: (context) => const OnBordingView(),
       },
       debugShowCheckedModeBanner: false,
       theme: MyTheme.lightTheme,
+      // home: AuthViewBody(),
       home: isLoading ? const SplashView() : widget.initialWidget,
     );
   }
