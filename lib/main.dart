@@ -8,7 +8,7 @@ import 'package:bag/Core/Uitls/blocObserver.dart';
 
 import 'package:bag/Feature/Home/presentation/View/HomeView.dart';
 import 'package:bag/Feature/OnBordingView/Presentation/Views/OnBordingView.dart';
-import 'package:bag/AuthViewBody.dart';
+import 'package:bag/Feature/AuthView/Presentation/Views/AuthViewBody.dart';
 import 'package:bag/Feature/SplashView/Presntation/Views/SplashView.dart';
 // import 'package:bag/try.dart';
 import 'package:flutter/material.dart';
@@ -56,7 +56,7 @@ class _MyAppState extends State<MyApp> {
     super.initState();
 
     // Simulate a loading process
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(milliseconds: 1500), () {
       setState(() {
         isLoading = false;
       });

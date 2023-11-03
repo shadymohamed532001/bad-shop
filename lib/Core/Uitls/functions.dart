@@ -1,6 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:bag/AuthViewBody.dart';
+import 'package:bag/Feature/AuthView/Presentation/Views/AuthViewBody.dart';
 import 'package:bag/Core/Uitls/LocalServices.dart';
 import 'package:flutter/material.dart';
 

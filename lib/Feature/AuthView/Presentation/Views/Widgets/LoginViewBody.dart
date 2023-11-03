@@ -1,8 +1,5 @@
 // ignore_for_file: non_constant_identifier_names, constant_identifier_names
 
-import 'dart:async';
-
-import 'package:bag/Core/Uitls/Constants.dart';
 import 'package:bag/Core/Uitls/LocalServices.dart';
 import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:bag/Core/Uitls/functions.dart';
@@ -75,81 +72,12 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         }
       },
       builder: (context, state) {
-        // if (state is LoginLoading) {
-        //   return Center(
-        //     child: CircularProgressIndicator(
-        //       color: MyTheme.primaryColor,
-        //       backgroundColor: Colors.transparent,
-        //     ),
-        //   );
-        // }
         var Loginubite = BlocProvider.of<LoginCubit>(context);
         return Padding(
           padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                //   Stack(
-                //     children: [
-                //       Row(
-                //         mainAxisAlignment: MainAxisAlignment.center,
-                //         children: [
-                //           TextButton(
-                //             onPressed: () {
-                //               setState(() {
-                //                 selectedButtonIndex = 0;
-                //               });
-                //             },
-                //             child: Text(
-                //               'SIGN IN',
-                //               style: Theme.of(context)
-                //                   .textTheme
-                //                   .titleMedium!
-                //                   .copyWith(fontSize: 14),
-                //             ),
-                //           ),
-                //           const SizedBox(
-                //             width: 20,
-                //           ),
-                //           TextButton(
-                //             onPressed: () async {
-                //               setState(() {
-                //                 selectedButtonIndex = 1;
-                //               });
-                //               NavigationToSignUP(context);
-                //             },
-                //             child: Text(
-                //               'SIGN UP',
-                //               style: Theme.of(context)
-                //                   .textTheme
-                //                   .titleMedium!
-                //                   .copyWith(fontSize: 14),
-                //             ),
-                //           ),
-                //         ],
-                //       ),
-                //       Padding(
-                //         padding: EdgeInsets.only(
-                //           left: MediaQuery.of(context).size.width * 0.285,
-                //           top: MediaQuery.of(context).size.width * 0.08,
-                //         ),
-                //         child: Align(
-                //           widthFactor: 2.6,
-                //           alignment: selectedButtonIndex == 1
-                //               ? Alignment.bottomRight
-                //               : Alignment.bottomLeft,
-                //           child: Container(
-                //             height: 3.3,
-                //             width: MediaQuery.of(context).size.width * .136,
-                //             decoration: BoxDecoration(
-                //               color: MyTheme.primaryColor,
-                //               borderRadius: BorderRadius.circular(50),
-                //             ),
-                //           ),
-                //         ),
-                //       ),
-                //     ],
-                //   ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.03,
                 ),
@@ -271,13 +199,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                             style: Theme.of(context).textTheme.titleSmall,
                           ),
                           TextButton(
-                              onPressed: () {
-                                setState(() {
-                                  selectedButtonIndex = 1;
-                                });
-                                // PushAndFinsh(context,
-                                //     PageName: SignUpView.routeName);
-                              },
+                              onPressed: () {},
                               child: Text(
                                 'Sign Up',
                                 style: Theme.of(context)
@@ -308,15 +230,6 @@ class _LoginViewBodyState extends State<LoginViewBody> {
       lang: 'en',
     );
   }
-
-  // void NavigationToSignUP(BuildContext context) {
-  //   Timer(const Duration(milliseconds: 120), () {
-  //     PushOnly(
-  //       context,
-  //       PageName: SignUpView.routeName,
-  //     );
-  //   });
-  // }
 
   void validateEmail(String val) {
     if (!EmailValidator.validate(val, true) && val.isNotEmpty) {

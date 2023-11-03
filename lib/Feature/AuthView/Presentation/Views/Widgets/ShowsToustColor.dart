@@ -1,4 +1,4 @@
-// ignore_for_file: constant_identifier_names
+// ignore_for_file: constant_identifier_names, non_constant_identifier_names
 
 import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:flutter/material.dart';
@@ -9,13 +9,14 @@ void ShowTouster({
   required ToustState state,
 }) {
   Fluttertoast.showToast(
-      msg: massage,
-      toastLength: Toast.LENGTH_LONG,
-      gravity: ToastGravity.TOP_RIGHT,
-      timeInSecForIosWeb: 3,
-      backgroundColor: ShowsToustColor(state),
-      textColor: MyTheme.whiteColor,
-      fontSize: 16.0);
+    msg: massage,
+    toastLength: Toast.LENGTH_LONG,
+    gravity: ToastGravity.TOP_RIGHT,
+    timeInSecForIosWeb: 2,
+    backgroundColor: ShowsToustColor(state),
+    textColor: MyTheme.whiteColor,
+    fontSize: 16.0,
+  );
 }
 
 enum ToustState {

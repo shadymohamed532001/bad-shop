@@ -1,8 +1,5 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'dart:async';
-
-import 'package:bag/Core/Uitls/Constants.dart';
 import 'package:bag/Core/Uitls/LocalServices.dart';
 import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:bag/Core/Uitls/functions.dart';
@@ -91,67 +88,6 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
             child: SingleChildScrollView(
                 child: Column(
               children: [
-                // Stack(
-                //   children: [
-                //     Row(
-                //       mainAxisAlignment: MainAxisAlignment.center,
-                //       children: [
-                //         TextButton(
-                //           onPressed: () {
-                //             setState(() {
-                //               selectedButtonIndex = 0;
-                //             });
-                //             NavigationToSignIn(context);
-                //           },
-                //           child: Text(
-                //             'SIGN IN',
-                //             style: Theme.of(context)
-                //                 .textTheme
-                //                 .titleMedium!
-                //                 .copyWith(fontSize: 14),
-                //           ),
-                //         ),
-                //         const SizedBox(
-                //           width: 20,
-                //         ),
-                //         TextButton(
-                //           onPressed: () async {
-                //             setState(() {
-                //               selectedButtonIndex = 1;
-                //             });
-                //           },
-                //           child: Text(
-                //             'SIGN UP',
-                //             style: Theme.of(context)
-                //                 .textTheme
-                //                 .titleMedium!
-                //                 .copyWith(fontSize: 14),
-                //           ),
-                //         ),
-                //       ],
-                //     ),
-                //     Padding(
-                //       padding: const EdgeInsets.only(
-                //         left: 122,
-                //         top: 35,
-                //       ),
-                //       child: Align(
-                //         widthFactor: 2.6,
-                //         alignment: selectedButtonIndex == 1
-                //             ? Alignment.bottomRight
-                //             : Alignment.bottomLeft,
-                //         child: Container(
-                //           height: 3.3,
-                //           width: MediaQuery.of(context).size.width * .136,
-                //           decoration: BoxDecoration(
-                //             color: MyTheme.primaryColor,
-                //             borderRadius: BorderRadius.circular(50),
-                //           ),
-                //         ),
-                //       ),
-                //     ),
-                //   ],
-                // ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.03,
                 ),
@@ -337,13 +273,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                           ),
                           TextButton(
                               onPressed: () {
-                                // PushAndFinsh(context,
-                                //     PageName: LoginView.routeName);
-                                setState(() {
-                                  setState(() {
-                                    selectedButtonIndex = 0;
-                                  });
-                                });
+                                // Navigator.pushNamedAndRemoveUntil(context,
+                                //     AuthViewBody.routeName, (route) => false);
                               },
                               child: Text(
                                 'Sign In',
@@ -372,7 +303,6 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
         password: passwordController.text,
         name: nameController.text,
         phone: phoneController.text);
-    print('register sucssefuly');
   }
 
   void validateEmail(String val) {
