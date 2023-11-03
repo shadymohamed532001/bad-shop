@@ -10,7 +10,6 @@ import 'package:bag/Feature/Home/presentation/View/HomeView.dart';
 import 'package:bag/Feature/OnBordingView/Presentation/Views/OnBordingView.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/AuthViewBody.dart';
 import 'package:bag/Feature/SplashView/Presntation/Views/SplashView.dart';
-// import 'package:bag/try.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
