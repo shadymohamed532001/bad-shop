@@ -1,8 +1,11 @@
 import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 
 class CustomSearchBar extends StatefulWidget {
+  const CustomSearchBar({super.key});
+
   @override
   _CustomSearchBarState createState() => _CustomSearchBarState();
 }
@@ -15,6 +18,10 @@ class _CustomSearchBarState extends State<CustomSearchBar>
   @override
   void initState() {
     super.initState();
+    SlidinAnimation();
+  }
+
+  void SlidinAnimation() {
     _controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 500));
   }
@@ -39,7 +46,8 @@ class _CustomSearchBarState extends State<CustomSearchBar>
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 22),
+      height: MediaQuery.of(context).size.height * .059,
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
         color: MyTheme.greyColorBackGround,
         borderRadius: BorderRadius.circular(33),
@@ -47,15 +55,18 @@ class _CustomSearchBarState extends State<CustomSearchBar>
       child: AppBar(
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(
-            Icons.menu,
+          icon: const FaIcon(
+            FontAwesomeIcons.bars,
             color: Colors.black,
+            size: 20,
           ),
           onPressed: () {},
         ),
         actions: <Widget>[
           AnimatedSwitcher(
-            duration: const Duration(milliseconds: 300),
+            duration: const Duration(
+              milliseconds: 300,
+            ),
             transitionBuilder: (Widget child, Animation<double> animation) {
               final offsetAnimation =
                   Tween<Offset>(begin: const Offset(1.0, 0.0), end: Offset.zero)
@@ -70,13 +81,11 @@ class _CustomSearchBarState extends State<CustomSearchBar>
             child: IconButton(
               key: ValueKey(_isSearchBarOpen),
               icon: _isSearchBarOpen
-                  ? const Icon(
-                      Icons.clear,
+                  ? const FaIcon(FontAwesomeIcons.xmark, color: Colors.black)
+                  : const FaIcon(
+                      FontAwesomeIcons.magnifyingGlass,
                       color: Colors.black,
-                    )
-                  : const Icon(
-                      Icons.search,
-                      color: Colors.black,
+                      size: 20,
                     ),
               onPressed: _toggleSearchBar,
             ),
@@ -96,11 +105,9 @@ class _CustomSearchBarState extends State<CustomSearchBar>
                 ),
                 onFieldSubmitted: (value) {},
               )
-            : const Text(
-                'Custom App Bar',
-                style: TextStyle(
-                  color: Colors.black,
-                ),
+            : Text(
+                'Bag Online Store',
+                style: Theme.of(context).textTheme.titleMedium,
               ),
       ),
     );
