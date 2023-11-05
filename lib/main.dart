@@ -7,6 +7,7 @@ import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:bag/Core/Uitls/blocObserver.dart';
 
 import 'package:bag/Feature/Home/presentation/View/HomeView.dart';
+import 'package:bag/Feature/Home/presentation/View/Manager/Cubites/HomeCubite/cubit/home_cubit.dart';
 import 'package:bag/Feature/OnBordingView/Presentation/Views/OnBordingView.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/AuthViewBody.dart';
 import 'package:bag/Feature/SplashView/Presntation/Views/SplashView.dart';
@@ -64,16 +65,18 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: {
-        HomeView.routeName: (context) => const HomeView(),
-        AuthViewBody.routeName: (context) => AuthViewBody(),
-        OnBordingView.routeName: (context) => const OnBordingView(),
-      },
-      debugShowCheckedModeBanner: false,
-      theme: MyTheme.lightTheme,
-      // home: AuthViewBody(),
-      home: isLoading ? const SplashView() : widget.initialWidget,
+    return BlocProvider(
+      create: (context) => HomeCubit(),
+      child: MaterialApp(
+        routes: {
+          HomeView.routeName: (context) => const HomeView(),
+          AuthViewBody.routeName: (context) => AuthViewBody(),
+          OnBordingView.routeName: (context) => const OnBordingView(),
+        },
+        debugShowCheckedModeBanner: false,
+        theme: MyTheme.lightTheme,
+        home: isLoading ? const SplashView() : widget.initialWidget,
+      ),
     );
   }
 }

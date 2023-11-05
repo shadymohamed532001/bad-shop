@@ -1,7 +1,9 @@
+import 'package:bag/Core/Uitls/LocalServices.dart';
 import 'package:bag/Core/Uitls/MyTheme.dart';
+import 'package:bag/Feature/AuthView/Presentation/Views/AuthViewBody.dart';
+import 'package:bag/Feature/Home/presentation/View/widgets/CustomPopUpMenu.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
+import 'package:iconsax/iconsax.dart';
 
 class CustomSearchBar extends StatefulWidget {
   const CustomSearchBar({super.key});
@@ -54,13 +56,16 @@ class _CustomSearchBarState extends State<CustomSearchBar>
       ),
       child: AppBar(
         elevation: 0,
-        leading: IconButton(
-          icon: const FaIcon(
-            FontAwesomeIcons.bars,
-            color: Colors.black,
-            size: 20,
-          ),
-          onPressed: () {},
+        leading: CustomPopUpMenu(
+          onTapItem2: () {
+            LocalServices.removeData(key: 'token').then((value) {
+              if (value) {
+                print('sign out');
+                Navigator.pushNamedAndRemoveUntil(
+                    context, AuthViewBody.routeName, (route) => false);
+              }
+            });
+          },
         ),
         actions: <Widget>[
           AnimatedSwitcher(
@@ -81,11 +86,13 @@ class _CustomSearchBarState extends State<CustomSearchBar>
             child: IconButton(
               key: ValueKey(_isSearchBarOpen),
               icon: _isSearchBarOpen
-                  ? const FaIcon(FontAwesomeIcons.xmark, color: Colors.black)
-                  : const FaIcon(
-                      FontAwesomeIcons.magnifyingGlass,
+                  ? const Icon(
+                      Iconsax.direct_right,
                       color: Colors.black,
-                      size: 20,
+                    )
+                  : const Icon(
+                      Iconsax.search_normal,
+                      color: Colors.black,
                     ),
               onPressed: _toggleSearchBar,
             ),
@@ -96,6 +103,7 @@ class _CustomSearchBarState extends State<CustomSearchBar>
                 autofocus: true,
                 decoration: InputDecoration(
                   hintText: 'Search',
+                  hintStyle: TextStyle(fontFamily: 'Poppins'),
                   border: UnderlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide.none,
@@ -105,10 +113,8 @@ class _CustomSearchBarState extends State<CustomSearchBar>
                 ),
                 onFieldSubmitted: (value) {},
               )
-            : Text(
-                'Bag Online Store',
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
+            : Text('Bag Online Store',
+                style: Theme.of(context).textTheme.titleMedium),
       ),
     );
   }

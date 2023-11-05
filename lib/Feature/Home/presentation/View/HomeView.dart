@@ -1,6 +1,9 @@
 import 'package:bag/Core/Uitls/assets.dart';
+import 'package:bag/Feature/Home/presentation/View/Manager/Cubites/HomeCubite/cubit/home_cubit.dart';
+import 'package:bag/Feature/Home/presentation/View/widgets/CustomNavigtionBar.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/HomeViewBody.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -8,15 +11,24 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Image.asset(
-          AppAssets.applogoBlack,
-          height: 50,
-          width: 50,
-        ),
-      ),
-      body: const HomeViewBody(),
+    return BlocConsumer<HomeCubit, HomeState>(
+      listener: (context, state) {
+        // TODO: implement listener
+      },
+      builder: (context, state) {
+        var Cubite = BlocProvider.of<HomeCubit>(context);
+        return Scaffold(
+          appBar: AppBar(
+            title: Image.asset(
+              AppAssets.applogoBlack,
+              height: 50,
+              width: 50,
+            ),
+          ),
+          body: Cubite.NavBarScreans[Cubite.currentIndex],
+          bottomNavigationBar: CustomBottomNavBar(),
+        );
+      },
     );
   }
 }

@@ -89,7 +89,7 @@ class _MyTabbedPageState extends State<AuthViewBody>
                   child: TabBarView(
                     controller: _tabController,
                     children: [
-                      LoginViewBody(),
+                      const LoginViewBody(),
                       SignUpViewBody(),
                     ],
                   ),
