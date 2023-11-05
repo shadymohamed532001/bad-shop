@@ -88,7 +88,7 @@ class _CustomSearchBarState extends State<CustomSearchBar>
               icon: _isSearchBarOpen
                   ? const Icon(
                       Iconsax.direct_right,
-                      color: Colors.black,
+                      color: Colors.red,
                     )
                   : const Icon(
                       Iconsax.search_normal,

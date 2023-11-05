@@ -1,18 +1,37 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
-// class CustomTapBar extends StatefulWidget {
-//   const CustomTapBar({super.key});
+class CustomHomeAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const CustomHomeAppBar(
+      {super.key,
+      this.onPressedleadin,
+      this.iconLeading,
+      this.actions,
+      this.showBackArrow = false,
+      this.title});
 
-//   @override
-//   State<CustomTapBar> createState() => _CustomTapBarState();
-// }
+  final bool showBackArrow;
+  final void Function()? onPressedleadin;
+  final IconData? iconLeading;
+  final List<Widget>? actions;
+  final Widget? title;
 
-// class _CustomTapBarState extends State<CustomTapBar> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return SafeArea(
-//         child: Container(
-//       child: Text('Bottom NavBar'),
-//     ));
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      centerTitle: false,
+      leading: showBackArrow
+          ? IconButton(
+              onPressed: () => Navigator.pop(context),
+              icon: const Icon(Iconsax.arrow_left))
+          : iconLeading != null
+              ? IconButton(onPressed: onPressedleadin, icon: Icon(iconLeading))
+              : null,
+      title: title,
+      actions: actions,
+    );
+  }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(80.3);
+}
