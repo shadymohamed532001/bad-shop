@@ -18,13 +18,6 @@ class HomeView extends StatelessWidget {
       builder: (context, state) {
         var Cubite = BlocProvider.of<HomeCubit>(context);
         return Scaffold(
-          // appBar: AppBar(
-          //   title: Image.asset(
-          //     AppAssets.applogoBlack,
-          //     height: 50,
-          //     width: 50,
-          //   ),
-          // ),
           body: Cubite.NavBarScreans[Cubite.currentIndex],
           bottomNavigationBar: CustomBottomNavBar(),
         );

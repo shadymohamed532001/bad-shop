@@ -4,7 +4,7 @@ import 'package:bag/Core/Uitls/LocalServices.dart';
 import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:bag/Core/Uitls/functions.dart';
 import 'package:bag/Core/Widgets/CustomBottom.dart';
-import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/CustomTextFormField.dart';
+import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/CustomAuthTextFormField.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/ShowsToustColor.dart';
 import 'package:bag/Feature/AuthView/Presentation/manager/Cubites/LoginCubite/cubit/login_cubit.dart';
 import 'package:bag/Feature/Home/presentation/View/HomeView.dart';

@@ -42,27 +42,25 @@ class Container2Clipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path_0 = Path();
-    path_0.moveTo(size.width * -0.0013000, size.height * -0.0006929);
-    path_0.lineTo(size.width * 0.0002143, size.height * 0.3218357);
-    path_0.quadraticBezierTo(size.width * 0.1090143, size.height * 0.2864000,
-        size.width * 0.1649286, size.height * 0.2755357);
+    path_0.moveTo(size.width * -0.0016714, size.height * 0.3156833);
+    path_0.quadraticBezierTo(size.width * 0.0787857, size.height * 0.3509583,
+        size.width * 0.1221571, size.height * 0.3925000);
+    path_0.quadraticBezierTo(size.width * 0.1537429, size.height * 0.4201833,
+        size.width * 0.2202286, size.height * 0.5169917);
+    path_0.quadraticBezierTo(size.width * 0.3357857, size.height * 0.7159333,
+        size.width * 0.3786429, size.height * 0.7665583);
     path_0.cubicTo(
-        size.width * 0.2989286,
-        size.height * 0.2473571,
-        size.width * 0.3283286,
-        size.height * 0.2459071,
-        size.width * 0.4287571,
-        size.height * 0.2515071);
-    path_0.cubicTo(
-        size.width * 0.5050571,
-        size.height * 0.2553500,
-        size.width * 0.5831286,
-        size.height * 0.2811214,
-        size.width * 0.7663143,
-        size.height * 0.3055643);
-    path_0.quadraticBezierTo(size.width * 0.8980143, size.height * 0.3191357,
-        size.width * 0.9986143, size.height * 0.3198429);
-    path_0.lineTo(size.width * 1.0007714, size.height * -0.0011143);
+        size.width * 0.4106143,
+        size.height * 0.8032000,
+        size.width * 0.4665000,
+        size.height * 0.8790000,
+        size.width * 0.5472286,
+        size.height * 0.8857583);
+    path_0.quadraticBezierTo(size.width * 0.6819000, size.height * 0.8973167,
+        size.width * 0.9241000, size.height * 0.7619667);
+    path_0.lineTo(size.width * 1.0222429, size.height * 0.6863333);
+    path_0.lineTo(size.width * 1.0025286, size.height * 1.0050000);
+    path_0.lineTo(size.width * 0.0019143, size.height * 1.0048417);
 
     path_0.close();
     return path_0;
