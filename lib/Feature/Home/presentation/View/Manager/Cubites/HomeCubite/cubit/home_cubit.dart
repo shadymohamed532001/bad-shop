@@ -10,7 +10,6 @@ import 'package:bag/Feature/Home/presentation/View/widgets/HomeViewBody.dart';
 import 'package:bag/Feature/Home/presentation/ViewModels/HomeModel/home_model/home_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 part 'home_state.dart';
 
@@ -32,12 +31,33 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   HomeModel? homeModel;
-  void HomeGetData() {
-    ApiServices.GetData(endpoint: homeendPoint, token: token).then(
-      (value) {
-        homeModel = HomeModel.fromJson(value.data);
-        print(homeModel!.data!.banners![0].image);
-      },
-    ).catchError((error) {});
+  Future HomeGetData() async {
+    try {
+      emit(HomeLoading());
+      var responses =
+          await ApiServices.GetData(endpoint: homeendPoint, token: token);
+
+      homeModel = HomeModel.fromJson(responses.data);
+      emit(HomeSucess(homeModel: homeModel!));
+
+      return homeModel;
+    } catch (e) {
+      emit(HomeError(error: e.toString()));
+    }
   }
+
+  // Future HomeGetData() async {
+  //   emit(HomeLoading());
+
+  //   await ApiServices.GetData(endpoint: homeendPoint, token: token).then(
+  //     (value) {
+  //       homeModel = HomeModel.fromJson(value.data);
+  //       print(homeModel!.data!.banners![0].image);
+
+  //       emit(HomeSucess(homeModel: homeModel!));
+  //     },
+  //   ).catchError((error) {
+  //     emit(HomeError(error: error.toString()));
+  //   });
+  // }
 }
