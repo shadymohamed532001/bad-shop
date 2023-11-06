@@ -22,6 +22,7 @@ class CustomBottomNavBar extends StatelessWidget {
       destinations: const [
         NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
         NavigationDestination(icon: Icon(Iconsax.shop), label: 'Store'),
+        // NavigationDestination(icon: Icon(Iconsax.shopping_bag), label: 'Bag'),
         NavigationDestination(icon: Icon(Iconsax.heart), label: 'Wishlist'),
         NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
       ],

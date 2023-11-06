@@ -1,9 +1,10 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:bag/Core/Uitls/ClipShapes.dart';
 import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/CustomtabBar.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/ListOfCatogry.dart';
+import 'package:bag/Feature/Home/presentation/View/widgets/PopularListViewItems.dart';
+import 'package:bag/Feature/Home/presentation/View/widgets/PrimaryHeaderContiner.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -151,99 +152,6 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           ],
         ))
       ],
-    );
-  }
-}
-
-class PopularListViewItems extends StatelessWidget {
-  const PopularListViewItems({
-    super.key,
-    required this.index,
-  });
-  final int index;
-
-  @override
-  Widget build(
-    BuildContext context,
-  ) {
-    return Container(
-      width: 60,
-      height: 60,
-      decoration: BoxDecoration(
-        color: MyTheme.whiteColor,
-        borderRadius: BorderRadius.circular(100),
-      ),
-      child: Image(
-          fit: BoxFit.cover,
-          image: AssetImage(
-            imagepath[index],
-          )),
-    );
-  }
-}
-
-class PrimaryHeaderContiner extends StatelessWidget {
-  const PrimaryHeaderContiner({super.key, required this.child});
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipPath(
-      clipper: ContainerHomeClipper(),
-      child: Container(
-        color: MyTheme.primaryColor,
-        padding: const EdgeInsets.all(0),
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height / 1.4,
-          child: Stack(
-            children: [
-              Positioned(
-                right: -200,
-                top: -200,
-                child: CircleContiner(
-                  Circlecolor: MyTheme.whiteColor.withOpacity(0.1),
-                ),
-              ),
-              Positioned(
-                right: -300,
-                top: 100,
-                child: CircleContiner(
-                  Circlecolor: MyTheme.whiteColor.withOpacity(0.1),
-                ),
-              ),
-              child,
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class CircleContiner extends StatelessWidget {
-  const CircleContiner({
-    super.key,
-    this.width = 400,
-    this.heignt = 400,
-    this.Circlecolor,
-    this.child,
-  });
-  final double? width;
-  final double? heignt;
-  final Color? Circlecolor;
-  final Widget? child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: heignt,
-      padding: const EdgeInsets.all(0),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(400),
-        color: Circlecolor,
-      ),
-      child: child,
     );
   }
 }
