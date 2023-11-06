@@ -66,7 +66,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit(),
+      create: (context) => HomeCubit()..HomeGetData(),
       child: MaterialApp(
         routes: {
           HomeView.routeName: (context) => const HomeView(),

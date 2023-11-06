@@ -9,31 +9,35 @@ class PrimaryHeaderContiner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipPath(
-      clipper: ContainerHomeClipper(),
-      child: Container(
-        color: MyTheme.primaryColor,
-        padding: const EdgeInsets.all(0),
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height / 1.4,
-          child: Stack(
-            children: [
-              Positioned(
-                right: -200,
-                top: -200,
-                child: CircleContiner(
-                  Circlecolor: MyTheme.whiteColor.withOpacity(0.1),
+    return SizedBox(
+      height: 400,
+      child: ClipPath(
+        clipper: ContainerHomeClipper(),
+        child: Container(
+          margin: EdgeInsets.zero,
+          color: MyTheme.primaryColor,
+          padding: const EdgeInsets.all(0),
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height / 1.3,
+            child: Stack(
+              children: [
+                Positioned(
+                  right: -200,
+                  top: -200,
+                  child: CircleContiner(
+                    Circlecolor: MyTheme.whiteColor.withOpacity(0.1),
+                  ),
                 ),
-              ),
-              Positioned(
-                right: -300,
-                top: 100,
-                child: CircleContiner(
-                  Circlecolor: MyTheme.whiteColor.withOpacity(0.1),
+                Positioned(
+                  right: -300,
+                  top: 100,
+                  child: CircleContiner(
+                    Circlecolor: MyTheme.whiteColor.withOpacity(0.1),
+                  ),
                 ),
-              ),
-              child,
-            ],
+                child,
+              ],
+            ),
           ),
         ),
       ),

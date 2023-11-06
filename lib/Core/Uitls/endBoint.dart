@@ -4,3 +4,5 @@ const baseUrl = 'https://student.valuxapps.com/api/';
 const Loginendpoint = 'login';
 
 const RegisterendPoint = 'register';
+
+const homeendPoint = 'home';

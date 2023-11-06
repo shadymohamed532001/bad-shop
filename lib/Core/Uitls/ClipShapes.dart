@@ -120,17 +120,18 @@ class ContainerHomeClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path_0 = Path();
-    path_0.moveTo(size.width * -0.0141857, size.height * -0.0059857);
-    path_0.lineTo(size.width * 0.0002143, size.height * 0.5359214);
-    path_0.quadraticBezierTo(size.width * 0.0225571, size.height * 0.5014714,
-        size.width * 0.0749429, size.height * 0.4995643);
-    path_0.quadraticBezierTo(size.width * 0.1895000, size.height * 0.4991429,
-        size.width * 0.5007000, size.height * 0.4997714);
-    path_0.quadraticBezierTo(size.width * 0.8541571, size.height * 0.4989357,
-        size.width * 0.9292286, size.height * 0.5007857);
-    path_0.quadraticBezierTo(size.width * 0.9812857, size.height * 0.5039643,
-        size.width * 1.0007143, size.height * 0.5363714);
-    path_0.lineTo(size.width * 1.0025857, size.height * -0.0008286);
+    path_0.moveTo(size.width * -0.0003000, size.height * -0.0031571);
+    path_0.lineTo(size.width * 0.0000400, size.height * 0.9824714);
+    path_0.quadraticBezierTo(size.width * 0.0314600, size.height * 0.9270286,
+        size.width * 0.0930200, size.height * 0.9134571);
+    path_0.quadraticBezierTo(size.width * 0.1589000, size.height * 0.9014714,
+        size.width * 0.3939000, size.height * 0.9046143);
+    path_0.lineTo(size.width * 0.7051200, size.height * 0.9046143);
+    path_0.quadraticBezierTo(size.width * 0.8276600, size.height * 0.9039286,
+        size.width * 0.9049000, size.height * 0.9128857);
+    path_0.quadraticBezierTo(size.width * 0.9654000, size.height * 0.9239571,
+        size.width * 0.9992200, size.height * 0.9829857);
+    path_0.lineTo(size.width * 0.9994000, size.height * -0.0000857);
 
     path_0.close();
     return path_0;

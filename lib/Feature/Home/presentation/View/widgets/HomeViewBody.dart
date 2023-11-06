@@ -1,10 +1,12 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:bag/Core/Uitls/MyTheme.dart';
+import 'package:bag/Feature/Home/presentation/View/widgets/CircleContiner.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/CustomtabBar.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/ListOfCatogry.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/PopularListViewItems.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/PrimaryHeaderContiner.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -16,142 +18,225 @@ class HomeViewBody extends StatefulWidget {
 }
 
 class _HomeViewBodyState extends State<HomeViewBody> {
+  int _currentPageIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     var width2 = MediaQuery.of(context).size.width;
     return Column(
       children: [
         PrimaryHeaderContiner(
-            child: Column(
-          children: [
-            CustomHomeAppBar(
-              actions: [
-                IconButton(
-                    onPressed: () {}, icon: const Icon(Iconsax.shopping_bag))
-              ],
-              title: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Good day for shopping',
-                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: MyTheme.whiteColor.withOpacity(0.7),
-                        fontSize: 16,
-                        fontFamily: 'Poppins'),
-                  ),
-                  Text(
-                    'Bag Store',
-                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                        fontSize: 22,
-                        color: MyTheme.whiteColor,
-                        fontFamily: 'Poppins'),
-                  ),
+          child: Column(
+            children: [
+              CustomHomeAppBar(
+                actions: [
+                  IconButton(
+                      onPressed: () {}, icon: const Icon(Iconsax.shopping_bag))
                 ],
-              ),
-            ),
-            SizedBox(
-              height: width2 * .05,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Container(
-                width: width2 * 1,
-                height: width2 * .12,
-                decoration: BoxDecoration(
-                    color: MyTheme.whiteColor,
-                    borderRadius: BorderRadius.circular(24),
-                    border: Border.all(color: Colors.grey)),
-                child: Row(
+                title: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(
-                      width: 15,
+                    Text(
+                      'Good day for shopping',
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: MyTheme.whiteColor.withOpacity(0.7),
+                          fontSize: 16,
+                          fontFamily: 'Poppins'),
                     ),
-                    Icon(Iconsax.search_normal, color: MyTheme.greyColor),
-                    const SizedBox(
-                      width: 15,
+                    Text(
+                      'Bag Store',
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                          fontSize: 22,
+                          color: MyTheme.whiteColor,
+                          fontFamily: 'Poppins'),
                     ),
-                    Expanded(
-                      child: TextFormField(
-                        // style: TextStyle(color:),
-                        onTapOutside: (Event) {
-                          FocusManager.instance.primaryFocus?.unfocus();
-                        },
-                        decoration: InputDecoration(
-                          hintText: 'Search',
-                          hintStyle: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: MyTheme.greyColor,
-                          ),
-                          border: UnderlineInputBorder(
-                            borderRadius: BorderRadius.circular(33),
-                            borderSide: BorderSide.none,
-                          ),
-                        ),
-                        onFieldSubmitted: (value) {},
-                      ),
-                    )
                   ],
                 ),
               ),
-            ),
-            SizedBox(
-              height: width2 * .04,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    'Popular Category',
-                    style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: MyTheme.whiteColor.withOpacity(.8),
-                        fontSize: 17,
-                        fontWeight: FontWeight.w900,
-                        fontFamily: 'Poppins'),
+              SizedBox(
+                height: width2 * .05,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Container(
+                  width: width2 * 1,
+                  height: width2 * .12,
+                  decoration: BoxDecoration(
+                      color: MyTheme.whiteColor,
+                      borderRadius: BorderRadius.circular(24),
+                      border: Border.all(color: Colors.grey)),
+                  child: Row(
+                    children: [
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      Icon(Iconsax.search_normal, color: MyTheme.greyColor),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      Expanded(
+                        child: TextFormField(
+                          // style: TextStyle(color:),
+                          onTapOutside: (Event) {
+                            FocusManager.instance.primaryFocus?.unfocus();
+                          },
+                          decoration: InputDecoration(
+                            hintText: 'Search',
+                            hintStyle: TextStyle(
+                              fontFamily: 'Poppins',
+                              color: MyTheme.greyColor,
+                            ),
+                            border: UnderlineInputBorder(
+                              borderRadius: BorderRadius.circular(33),
+                              borderSide: BorderSide.none,
+                            ),
+                          ),
+                          onFieldSubmitted: (value) {},
+                        ),
+                      )
+                    ],
                   ),
-                ],
+                ),
               ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.width * .3,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: imagepath.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Column(
-                      children: [
-                        PopularListViewItems(
-                          index: index,
-                        ),
-                        const SizedBox(
-                          height: 4,
-                        ),
-                        Text(
-                          categoryName[index],
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleSmall!
-                              .copyWith(color: MyTheme.whiteColor),
-                        )
-                      ],
+              SizedBox(
+                height: width2 * .04,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Popular Category',
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: MyTheme.whiteColor.withOpacity(.8),
+                          fontSize: 17,
+                          fontWeight: FontWeight.w900,
+                          fontFamily: 'Poppins'),
                     ),
-                  );
-                },
+                  ],
+                ),
               ),
-            ),
+              SizedBox(
+                height: MediaQuery.of(context).size.width * .3,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: imagepath.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        children: [
+                          PopularListViewItems(
+                            index: index,
+                          ),
+                          const SizedBox(
+                            height: 4,
+                          ),
+                          Text(
+                            categoryName[index],
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .copyWith(color: MyTheme.whiteColor),
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
 
-            // const Padding(
-            //   padding: EdgeInsets.symmetric(
-            //     horizontal: 14,
-            //   ),
-            //   child: CustomSearchBar(),
-            // ),
+              // const Padding(
+              //   padding: EdgeInsets.symmetric(
+              //     horizontal: 14,
+              //   ),
+              //   child: CustomSearchBar(),
+              // ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(12),
+          child: CarouselSlider(
+            options: CarouselOptions(
+                viewportFraction: 1,
+                onPageChanged: (index, _) {
+                  setState(() {
+                    _currentPageIndex = index;
+                  });
+                }),
+            items: [
+              SliderItems(
+                width2: width2,
+              ),
+              SliderItems(
+                width2: width2,
+              ),
+              SliderItems(
+                width2: width2,
+              ),
+            ],
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircleContiner(
+              margin: const EdgeInsets.only(right: 5),
+              heignt: 5,
+              Circlecolor: _currentPageIndex == 0
+                  ? MyTheme.primaryColor
+                  : MyTheme.greyColor,
+              width: 20,
+            ),
+            CircleContiner(
+              margin: const EdgeInsets.only(right: 5),
+              heignt: 5,
+              Circlecolor: _currentPageIndex == 1
+                  ? MyTheme.primaryColor
+                  : MyTheme.greyColor,
+              width: 20,
+            ),
+            CircleContiner(
+              margin: const EdgeInsets.only(right: 5),
+              heignt: 5,
+              Circlecolor: _currentPageIndex == 2
+                  ? MyTheme.primaryColor
+                  : MyTheme.greyColor,
+              width: 20,
+            )
           ],
-        ))
+        )
       ],
+    );
+  }
+}
+
+class SliderItems extends StatelessWidget {
+  const SliderItems({
+    super.key,
+    required this.width2,
+  });
+
+  final double width2;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: width2,
+      height: width2 * .5,
+      margin: const EdgeInsets.symmetric(horizontal: 10),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(22)),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(22),
+        child: const Image(
+          image: AssetImage(
+            'assets/images/slider 3.png',
+          ),
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 }

@@ -6,11 +6,9 @@ class ApiServices {
 
   static init() {
     dio = Dio(BaseOptions(
-        baseUrl: baseUrl,
-        receiveDataWhenStatusError: true,
-        headers: {
-          'Content-Type': 'application/json',
-        }));
+      baseUrl: baseUrl,
+      receiveDataWhenStatusError: true,
+    ));
   }
 
   static Future<Response> PostData({
@@ -21,11 +19,26 @@ class ApiServices {
   }) async {
     dio?.options.headers = {
       'Authorization': token,
+      'Content-Type': 'application/json',
       'lang': lang,
     };
     return await dio!.post(
       endpoint,
       data: data,
     );
+  }
+
+  static Future<Response> GetData(
+      {required String endpoint,
+      Object? data,
+      String? token,
+      String lang = 'ar',
+      Map<String, dynamic>? queryParameters}) async {
+    dio?.options.headers = {
+      'Authorization': token,
+      'Content-Type': 'application/json',
+      'lang': lang,
+    };
+    return await dio!.get(endpoint, queryParameters: queryParameters);
   }
 }
