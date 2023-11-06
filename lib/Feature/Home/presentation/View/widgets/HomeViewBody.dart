@@ -173,11 +173,11 @@ class PopularListViewItems extends StatelessWidget {
         color: MyTheme.whiteColor,
         borderRadius: BorderRadius.circular(100),
       ),
-      // child: Image(
-      //     fit: BoxFit.cover,
-      //     image: AssetImage(
-      //       imagepath[index],
-      //     )),
+      child: Image(
+          fit: BoxFit.cover,
+          image: AssetImage(
+            imagepath[index],
+          )),
     );
   }
 }
