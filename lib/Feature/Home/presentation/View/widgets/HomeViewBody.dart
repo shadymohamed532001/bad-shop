@@ -1,12 +1,15 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:bag/Core/Uitls/MyTheme.dart';
+import 'package:bag/Feature/Home/presentation/View/Manager/Cubites/HomeCubite/cubit/home_cubit.dart';
+import 'package:bag/Feature/Home/presentation/View/widgets/CircleContiner.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/CustomtabBar.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/ListOfCatogry.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/PopularListViewItems.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/PrimaryHeaderContiner.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/ProudectSlider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 
 class HomeViewBody extends StatefulWidget {
@@ -160,11 +163,140 @@ class _HomeViewBodyState extends State<HomeViewBody> {
                   ],
                 ),
               ),
-              const ProudectSlider()
+              const ProudectSlider(),
+              const ProudectCardVertical()
             ],
           ),
         )
       ],
+    );
+  }
+}
+
+class ProudectCardVertical extends StatelessWidget {
+  const ProudectCardVertical({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 180,
+      padding: const EdgeInsets.all(1),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(22),
+        color: MyTheme.whiteColor,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.1),
+            blurRadius: 50,
+            spreadRadius: 7,
+            offset: const Offset(3, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        children: [
+          CircleContiner(
+            heignt: 180,
+            // Circlecolor: MyTheme.whiteColor,
+            child: Stack(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(40),
+                  child: Image(
+                    image: NetworkImage(BlocProvider.of<HomeCubit>(context)
+                        .homeModel!
+                        .data!
+                        .products![1]
+                        .images!
+                        .first),
+                  ),
+                ),
+                Positioned(
+                  top: 16,
+                  left: 12,
+                  child: CircleContiner(
+                    width: 40,
+                    heignt: 30,
+                    borderRadius: BorderRadius.circular(12),
+                    Circlecolor: MyTheme.yellowColor,
+                    child: Center(
+                      child: Text(
+                        '25%',
+                        style:
+                            Theme.of(context).textTheme.titleMedium!.copyWith(
+                                  fontSize: 12,
+                                ),
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 16,
+                  right: 12,
+                  child: CircleContiner(
+                    width: 45,
+                    heignt: 38,
+                    borderRadius: BorderRadius.circular(50),
+                    Circlecolor: MyTheme.whiteColor,
+                    child: Center(
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 8, top: 8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text('MacBook Pro M1 '),
+                const SizedBox(
+                  height: 5,
+                ),
+                const Row(
+                  children: [
+                    Text('Apple'),
+                    Icon(
+                      Iconsax.verify5,
+                      color: Colors.blue,
+                      size: 14,
+                    )
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text('\$888'),
+                    CircleContiner(
+                      width: 50,
+                      heignt: 50,
+                      Circlecolor: MyTheme.primaryColor,
+                      borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(24),
+                          bottomRight: Radius.circular(24)),
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Iconsax.add,
+                          color: MyTheme.whiteColor,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

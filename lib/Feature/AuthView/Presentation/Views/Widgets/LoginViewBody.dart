@@ -124,7 +124,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
-                            color: MyTheme.RedColor,
+                            color: MyTheme.redColor,
                           ),
                         ),
                       ),

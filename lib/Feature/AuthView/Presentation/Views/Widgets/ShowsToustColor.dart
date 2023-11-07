@@ -33,7 +33,7 @@ Color ShowsToustColor(ToustState state) {
       color = MyTheme.primaryColor;
       break;
     case ToustState.ERROR:
-      color = MyTheme.RedColor;
+      color = MyTheme.redColor;
       break;
     case ToustState.WARNING:
       color = MyTheme.greyColor;

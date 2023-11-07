@@ -8,12 +8,16 @@ class CircleContiner extends StatelessWidget {
     this.Circlecolor,
     this.child,
     this.margin,
+    this.borderRadius,
+    this.padding,
   });
   final double? width;
   final double? heignt;
   final Color? Circlecolor;
   final Widget? child;
   final EdgeInsetsGeometry? margin;
+  final BorderRadiusGeometry? borderRadius;
+  final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +25,9 @@ class CircleContiner extends StatelessWidget {
       width: width,
       height: heignt,
       margin: margin,
-      padding: const EdgeInsets.all(0),
+      padding: padding,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(400),
+        borderRadius: borderRadius,
         color: Circlecolor,
       ),
       child: child,

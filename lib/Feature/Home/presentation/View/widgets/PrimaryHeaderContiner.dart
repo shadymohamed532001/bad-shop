@@ -25,6 +25,7 @@ class PrimaryHeaderContiner extends StatelessWidget {
                   right: -200,
                   top: -200,
                   child: CircleContiner(
+                    borderRadius: BorderRadius.circular(400),
                     Circlecolor: MyTheme.whiteColor.withOpacity(0.1),
                   ),
                 ),
@@ -32,6 +33,7 @@ class PrimaryHeaderContiner extends StatelessWidget {
                   right: -300,
                   top: 100,
                   child: CircleContiner(
+                    borderRadius: BorderRadius.circular(400),
                     Circlecolor: MyTheme.whiteColor.withOpacity(0.1),
                   ),
                 ),
