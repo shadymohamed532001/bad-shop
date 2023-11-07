@@ -1,6 +1,6 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:bag/Core/Uitls/MyTheme.dart';
+import 'package:bag/AppManager/ColorMangager.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormFiled extends StatelessWidget {
@@ -56,7 +56,7 @@ class CustomTextFormFiled extends StatelessWidget {
           suffixIconColor: const Color.fromARGB(255, 101, 98, 98),
           prefixIcon: prefixIcon,
           filled: true,
-          fillColor: MyTheme.greyColorBackGround,
+          fillColor: ColorManger.greyColorBackGround,
           enabledBorder: buildOutlineInputBorder(
             width: 1,
           ),
@@ -85,7 +85,7 @@ OutlineInputBorder buildOutlineInputBorder({required double width}) {
     borderRadius: BorderRadius.circular(18),
     borderSide: BorderSide(
       width: width,
-      color: MyTheme.primaryColor,
+      color: ColorManger.primaryColor,
     ),
   );
 }

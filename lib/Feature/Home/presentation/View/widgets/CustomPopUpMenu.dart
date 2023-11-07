@@ -1,4 +1,4 @@
-import 'package:bag/Core/Uitls/MyTheme.dart';
+import 'package:bag/AppManager/ColorMangager.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -20,10 +20,10 @@ class CustomPopUpMenu extends StatelessWidget {
         elevation: 0.0,
         enableFeedback: true,
         // splashRadius: 12.3,
-        color: MyTheme.greyColorBackGround,
+        color: ColorManger.greyColorBackGround,
         shape: OutlineInputBorder(
           borderSide: BorderSide(
-            color: MyTheme.greyColorBackGround,
+            color: ColorManger.greyColorBackGround,
           ),
           borderRadius: BorderRadius.circular(12),
         ),

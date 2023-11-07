@@ -1,4 +1,4 @@
-import 'package:bag/Core/Uitls/MyTheme.dart';
+import 'package:bag/AppManager/ColorMangager.dart';
 import 'package:flutter/material.dart';
 
 class CustomBottom extends StatelessWidget {
@@ -20,12 +20,13 @@ class CustomBottom extends StatelessWidget {
       style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 20),
           backgroundColor: backgroundColor,
-          shape: StadiumBorder(side: BorderSide(color: MyTheme.primaryColor))),
+          shape:
+              StadiumBorder(side: BorderSide(color: ColorManger.primaryColor))),
       child: Text(bottomtext,
           style: Theme.of(context)
               .textTheme
               .titleMedium!
-              .copyWith(color: MyTheme.whiteColor)),
+              .copyWith(color: ColorManger.whiteColor)),
     );
   }
 }

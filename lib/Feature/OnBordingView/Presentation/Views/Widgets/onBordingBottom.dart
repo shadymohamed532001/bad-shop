@@ -1,5 +1,5 @@
+import 'package:bag/AppManager/ColorMangager.dart';
 import 'package:bag/Core/Uitls/AppStyles.dart';
-import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:bag/Core/Uitls/functions.dart';
 import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/ListOfOnBordingContinet.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +30,7 @@ class CustomOnBordBottom extends StatelessWidget {
               curve: Curves.bounceIn);
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: MyTheme.primaryColor,
+          backgroundColor: ColorManger.primaryColor,
           shadowColor: Colors.grey,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(25),

@@ -1,5 +1,5 @@
+import 'package:bag/AppManager/ColorMangager.dart';
 import 'package:bag/Core/Uitls/ClipShapes.dart';
-import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/CircleContiner.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ class PrimaryHeaderContiner extends StatelessWidget {
         clipper: ContainerHomeClipper(),
         child: Container(
           margin: EdgeInsets.zero,
-          color: MyTheme.primaryColor,
+          color: ColorManger.primaryColor,
           padding: const EdgeInsets.all(0),
           child: SizedBox(
             height: MediaQuery.of(context).size.height / 1.3,
@@ -26,7 +26,7 @@ class PrimaryHeaderContiner extends StatelessWidget {
                   top: -200,
                   child: CircleContiner(
                     borderRadius: BorderRadius.circular(400),
-                    Circlecolor: MyTheme.whiteColor.withOpacity(0.1),
+                    Circlecolor: ColorManger.whiteColor.withOpacity(0.1),
                   ),
                 ),
                 Positioned(
@@ -34,7 +34,7 @@ class PrimaryHeaderContiner extends StatelessWidget {
                   top: 100,
                   child: CircleContiner(
                     borderRadius: BorderRadius.circular(400),
-                    Circlecolor: MyTheme.whiteColor.withOpacity(0.1),
+                    Circlecolor: ColorManger.whiteColor.withOpacity(0.1),
                   ),
                 ),
                 child,

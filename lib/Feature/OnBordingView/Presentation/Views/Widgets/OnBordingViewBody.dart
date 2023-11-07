@@ -1,7 +1,7 @@
 // ignore_for_file: file_names
 
+import 'package:bag/AppManager/ColorMangager.dart';
 import 'package:bag/Core/Uitls/ClipShapes.dart';
-import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:bag/Core/Uitls/functions.dart';
 import 'package:bag/Core/Widgets/CustomClipPath.dart';
 import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/CustomSkiper.dart';
@@ -108,7 +108,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                                       margin: const EdgeInsets.only(right: 5),
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
-                                        color: MyTheme.primaryColor,
+                                        color: ColorManger.primaryColor,
                                       ),
                                     )),
                           ),

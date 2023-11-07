@@ -1,4 +1,4 @@
-import 'package:bag/Core/Uitls/MyTheme.dart';
+import 'package:bag/AppManager/ColorMangager.dart';
 import 'package:flutter/material.dart';
 
 class PopularListViewItems extends StatelessWidget {
@@ -16,7 +16,7 @@ class PopularListViewItems extends StatelessWidget {
       width: 60,
       height: 60,
       decoration: BoxDecoration(
-        color: MyTheme.whiteColor,
+        color: ColorManger.whiteColor,
         borderRadius: BorderRadius.circular(100),
       ),
       // child: Image(

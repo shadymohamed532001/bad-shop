@@ -32,10 +32,11 @@ class HomeCubit extends Cubit<HomeState> {
 
   HomeModel? homeModel;
   Future HomeGetData() async {
+    emit(HomeLoading());
+
     try {
-      emit(HomeLoading());
-      var responses =
-          await ApiServices.GetData(endpoint: homeendPoint, token: token);
+      var responses = await ApiServices.GetData(
+          endpoint: homeendPoint, token: token, lang: 'en');
 
       homeModel = HomeModel.fromJson(responses.data);
       emit(HomeSucess(homeModel: homeModel!));

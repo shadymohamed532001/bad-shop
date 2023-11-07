@@ -1,4 +1,6 @@
-import 'package:bag/Core/Uitls/MyTheme.dart';
+// ignore_for_file: file_names
+
+import 'package:bag/AppManager/ColorMangager.dart';
 import 'package:bag/Feature/Home/presentation/View/Manager/Cubites/HomeCubite/cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +18,7 @@ class CustomBottomNavBar extends StatelessWidget {
       onDestinationSelected: (index) {
         BlocProvider.of<HomeCubit>(context).ChangeBottomIndex(index);
       },
-      indicatorColor: MyTheme.primaryColor.withOpacity(.25),
+      indicatorColor: ColorManger.primaryColor.withOpacity(.25),
       height: MediaQuery.of(context).size.width * .17,
       elevation: 0,
       destinations: const [

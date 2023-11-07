@@ -1,4 +1,4 @@
-import 'package:bag/Core/Uitls/MyTheme.dart';
+import 'package:bag/AppManager/ColorMangager.dart';
 import 'package:bag/Core/Uitls/assets.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/LoginViewBody.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/SignUpViewBody.dart';
@@ -78,7 +78,7 @@ class _MyTabbedPageState extends State<AuthViewBody>
                     ),
                   ],
                   indicatorWeight: 4,
-                  indicatorColor: MyTheme.primaryColor,
+                  indicatorColor: ColorManger.primaryColor,
                   indicatorSize: TabBarIndicatorSize.label,
                   controller: _tabController,
                 ),

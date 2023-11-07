@@ -1,3 +1,4 @@
+import 'package:bag/AppManager/ColorMangager.dart';
 import 'package:bag/Feature/SplashView/Presntation/Views/Widgets/SplashViewBody.dart';
 import 'package:flutter/material.dart';
 
@@ -6,9 +7,9 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Color(0xff4C6B5B),
-      body: SplashViewBody(),
+    return Scaffold(
+      backgroundColor: ColorManger.darkprimaryColor,
+      body: const SplashViewBody(),
     );
   }
 }

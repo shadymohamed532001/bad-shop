@@ -1,7 +1,7 @@
 // ignore_for_file: non_constant_identifier_names, constant_identifier_names
 
+import 'package:bag/AppManager/ColorMangager.dart';
 import 'package:bag/Core/Uitls/LocalServices.dart';
-import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:bag/Core/Uitls/functions.dart';
 import 'package:bag/Core/Widgets/CustomBottom.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/CustomAuthTextFormField.dart';
@@ -46,7 +46,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               context: context,
               builder: (_) => Center(
                     child: CircularProgressIndicator(
-                      color: MyTheme.whiteColor,
+                      color: ColorManger.whiteColor,
                     ),
                   ));
         } else if (state is LoginSucess) {
@@ -124,7 +124,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
-                            color: MyTheme.redColor,
+                            color: ColorManger.redColor,
                           ),
                         ),
                       ),
@@ -172,7 +172,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                           style: Theme.of(context)
                               .textTheme
                               .titleSmall!
-                              .copyWith(color: MyTheme.primaryColor),
+                              .copyWith(color: ColorManger.primaryColor),
                         ),
                       ),
                       SizedBox(
@@ -188,7 +188,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                             setState(() {});
                           }
                         },
-                        backgroundColor: MyTheme.primaryColor,
+                        backgroundColor: ColorManger.primaryColor,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -206,7 +206,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                                     .textTheme
                                     .titleSmall!
                                     .copyWith(
-                                      color: MyTheme.primaryColor,
+                                      color: ColorManger.primaryColor,
                                       decoration: TextDecoration.underline,
                                     ),
                               ))

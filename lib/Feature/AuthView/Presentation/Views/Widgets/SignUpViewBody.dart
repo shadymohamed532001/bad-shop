@@ -1,7 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:bag/AppManager/ColorMangager.dart';
 import 'package:bag/Core/Uitls/LocalServices.dart';
-import 'package:bag/Core/Uitls/MyTheme.dart';
 import 'package:bag/Core/Uitls/functions.dart';
 import 'package:bag/Core/Widgets/CustomBottom.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/CustomAuthTextFormField.dart';
@@ -57,7 +57,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               context: context,
               builder: (_) => Center(
                     child: CircularProgressIndicator(
-                      color: MyTheme.whiteColor,
+                      color: ColorManger.whiteColor,
                     ),
                   ));
         } else if (state is RegisterSucess) {
@@ -154,7 +154,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
-                            color: MyTheme.redColor,
+                            color: ColorManger.redColor,
                           ),
                         ),
                       ),
@@ -218,11 +218,11 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                             scale: 1.36,
                             child: Checkbox(
                               value: widget.isChecked,
-                              activeColor: MyTheme.primaryColor,
+                              activeColor: ColorManger.primaryColor,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(5),
                                   side: BorderSide(
-                                    color: MyTheme.primaryColor,
+                                    color: ColorManger.primaryColor,
                                     style: BorderStyle.none,
                                   )),
                               onChanged: (bool? newValue) {
@@ -242,7 +242,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                                 .textTheme
                                 .titleSmall!
                                 .copyWith(
-                                  color: MyTheme.primaryColor,
+                                  color: ColorManger.primaryColor,
                                   decoration: TextDecoration.underline,
                                 ),
                           ),
@@ -262,7 +262,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                             setState(() {});
                           }
                         },
-                        backgroundColor: MyTheme.primaryColor,
+                        backgroundColor: ColorManger.primaryColor,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -282,7 +282,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                                     .textTheme
                                     .titleSmall!
                                     .copyWith(
-                                      color: MyTheme.primaryColor,
+                                      color: ColorManger.primaryColor,
                                       decoration: TextDecoration.underline,
                                     ),
                               ))
