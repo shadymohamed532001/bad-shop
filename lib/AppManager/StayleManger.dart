@@ -14,7 +14,47 @@ TextStyle _getTexStyle(
 TextStyle getRegularStyle({
   double fontsize = FontSize.s14,
   required FontWeight fontWeight,
-  Color color,
+  required Color color,
 }) {
-  return _getTexStyle(fontsize, fontWeight, color);
+  return _getTexStyle(fontsize, FontWeightManager.regular, color);
+}
+
+// medium Text Style
+
+TextStyle getMediumStyle({
+  double fontsize = FontSize.s14,
+  required FontWeight fontWeight,
+  required Color color,
+}) {
+  return _getTexStyle(fontsize, FontWeightManager.medium, color);
+}
+
+// bold Text Style
+
+TextStyle getBoldStyle({
+  double fontsize = FontSize.s14,
+  required FontWeight fontWeight,
+  required Color color,
+}) {
+  return _getTexStyle(fontsize, FontWeightManager.bold, color);
+}
+
+// semibold Text Style
+
+TextStyle getSemiboldStyle({
+  double fontsize = FontSize.s14,
+  required FontWeight fontWeight,
+  required Color color,
+}) {
+  return _getTexStyle(fontsize, FontWeightManager.semibold, color);
+}
+
+// light Text Style
+
+TextStyle getlightStyle({
+  double fontsize = FontSize.s14,
+  required FontWeight fontWeight,
+  required Color color,
+}) {
+  return _getTexStyle(fontsize, FontWeightManager.light, color);
 }

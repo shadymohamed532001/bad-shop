@@ -49,7 +49,7 @@ class ProudectSlider extends StatelessWidget {
                 shrinkWrap: true,
                 crossAxisCount: 2,
                 crossAxisSpacing: 15,
-                childAspectRatio: 1 / 1.44,
+                childAspectRatio: 1 / 1.48,
                 mainAxisSpacing: 20,
                 physics: const NeverScrollableScrollPhysics(),
                 children: List.generate(

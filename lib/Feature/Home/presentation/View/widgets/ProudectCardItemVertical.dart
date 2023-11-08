@@ -13,7 +13,7 @@ class ProudectCardItemVertical extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 180,
+      // width: 180,
       padding: const EdgeInsets.all(1),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(22),
@@ -82,6 +82,9 @@ class ProudectCardItemVertical extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          const SizedBox(
+            height: 10,
           ),
           Padding(
             padding: const EdgeInsets.only(left: 8, top: 8),
