@@ -1,6 +1,7 @@
 import 'package:bag/AppManager/FontManager.dart';
 import 'package:flutter/material.dart';
 
+// main function the all type return it
 TextStyle _getTexStyle(
   double fontsize,
   FontWeight fontWeight,
@@ -13,7 +14,6 @@ TextStyle _getTexStyle(
 
 TextStyle getRegularStyle({
   double fontsize = FontSize.s14,
-  required FontWeight fontWeight,
   required Color color,
 }) {
   return _getTexStyle(fontsize, FontWeightManager.regular, color);
@@ -23,7 +23,6 @@ TextStyle getRegularStyle({
 
 TextStyle getMediumStyle({
   double fontsize = FontSize.s14,
-  required FontWeight fontWeight,
   required Color color,
 }) {
   return _getTexStyle(fontsize, FontWeightManager.medium, color);
@@ -33,7 +32,6 @@ TextStyle getMediumStyle({
 
 TextStyle getBoldStyle({
   double fontsize = FontSize.s14,
-  required FontWeight fontWeight,
   required Color color,
 }) {
   return _getTexStyle(fontsize, FontWeightManager.bold, color);
@@ -43,7 +41,6 @@ TextStyle getBoldStyle({
 
 TextStyle getSemiboldStyle({
   double fontsize = FontSize.s14,
-  required FontWeight fontWeight,
   required Color color,
 }) {
   return _getTexStyle(fontsize, FontWeightManager.semibold, color);
@@ -53,7 +50,6 @@ TextStyle getSemiboldStyle({
 
 TextStyle getlightStyle({
   double fontsize = FontSize.s14,
-  required FontWeight fontWeight,
   required Color color,
 }) {
   return _getTexStyle(fontsize, FontWeightManager.light, color);

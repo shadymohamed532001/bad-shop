@@ -1,5 +1,6 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:bag/AppManager/ThemManger.dart';
 import 'package:bag/Core/Uitls/ApiServices.dart';
 import 'package:bag/Core/Uitls/Constants.dart';
 import 'package:bag/Core/Uitls/LocalServices.dart';
@@ -74,7 +75,7 @@ class _MyAppState extends State<MyApp> {
           OnBordingView.routeName: (context) => const OnBordingView(),
         },
         debugShowCheckedModeBanner: false,
-        theme: MyTheme.lightTheme,
+        theme: getAppThem(),
         home: isLoading ? const SplashView() : widget.initialWidget,
       ),
     );
