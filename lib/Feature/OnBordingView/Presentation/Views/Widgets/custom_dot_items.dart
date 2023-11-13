@@ -11,30 +11,19 @@ class CustomDotItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(
-                3,
-                (index) => Container(
-                      height: 7,
-                      width: currnetIndex == index ? 30 : 10,
-                      margin: const EdgeInsets.only(right: 5),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: ColorManger.primaryColor,
-                      ),
-                    )),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(
+        3,
+        (index) => Container(
+          height: 7,
+          width: currnetIndex == index ? 30 : 10,
+          margin: const EdgeInsets.only(right: 5),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: ColorManger.primaryColor,
           ),
-          const Spacer(
-            flex: 5,
-          ),
-          const Spacer(
-            flex: 6,
-          ),
-        ],
+        ),
       ),
     );
   }

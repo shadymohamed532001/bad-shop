@@ -42,7 +42,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
           currnetIndex = value;
         });
       },
-      itemCount: 3,
+      itemCount: continte.length,
       itemBuilder: (context, index) {
         var height = MediaQuery.of(context).size.height;
         var width = MediaQuery.of(context).size.width;
@@ -93,10 +93,22 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                     const Spacer(
                       flex: 1,
                     ),
-                    CustomDotItems(currnetIndex: currnetIndex),
-                    CustomOnBordBottom(
-                      currnetIndex: currnetIndex,
-                      pageController: pageController,
+                    Expanded(
+                      child: Column(
+                        children: [
+                          CustomDotItems(currnetIndex: currnetIndex),
+                          const Spacer(
+                            flex: 5,
+                          ),
+                          CustomOnBordBottom(
+                            currnetIndex: currnetIndex,
+                            pageController: pageController,
+                          ),
+                          const Spacer(
+                            flex: 6,
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),

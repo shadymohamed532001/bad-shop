@@ -1,9 +1,9 @@
-class OnBordingContente {
+class OnBordingModel {
   final String tittle;
   final String? imagepath;
   final String subtittle;
 
-  OnBordingContente({
+  OnBordingModel({
     required this.tittle,
     this.imagepath,
     required this.subtittle,
