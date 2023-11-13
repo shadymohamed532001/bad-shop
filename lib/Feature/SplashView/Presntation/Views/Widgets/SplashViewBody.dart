@@ -70,6 +70,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
     );
   }
 
+// make the wifi and power icons disappear when the device start with spash screen
   void _setSystemUIOverlayStyle() {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     final double bottomPadding = View.of(context).viewPadding.bottom;
