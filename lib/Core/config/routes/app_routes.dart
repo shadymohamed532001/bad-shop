@@ -1,3 +1,7 @@
+import 'package:bag/Core/Uitls/Resourses/ColorMangager.dart';
+import 'package:bag/Core/Uitls/Resourses/StayleManger.dart';
+import 'package:bag/Core/Uitls/Resourses/StringManger.dart';
+import 'package:bag/Core/Uitls/Resourses/ValuesManger.dart';
 import 'package:bag/Core/config/routes/routes.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/AuthViewBody.dart';
 import 'package:bag/Feature/OnBordingView/Presentation/Views/onbodrding_view.dart';
@@ -23,15 +27,13 @@ class AppRoutes {
 
   static Route<dynamic> _unFoundRoute() {
     return MaterialPageRoute(
-      builder: (context) => const Scaffold(
+      builder: (context) => Scaffold(
         body: Center(
-          child: Text(
-            "Un Found Route",
-            style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+          child: Text(AppString.noRouteFounded,
+              style: getBoldStyle(
+                fontsize: AppSize.s28,
+                color: ColorManger.blackColor,
+              )),
         ),
       ),
     );

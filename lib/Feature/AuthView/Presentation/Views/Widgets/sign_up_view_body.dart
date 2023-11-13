@@ -172,12 +172,13 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                       CustomTextFormFiled(
                         obscureText: BlocProvider.of<RegisterCubit>(context)
                             .isPasswordShow,
-                        suffixIcon: IconButton(
-                          onPressed: () {
+                        suffixIcon: InkWell(
+                          splashColor: Colors.transparent,
+                          onTap: () {
                             BlocProvider.of<RegisterCubit>(context)
                                 .ChangepasswordVisiability();
                           },
-                          icon: BlocProvider.of<RegisterCubit>(context).icon,
+                          child: BlocProvider.of<RegisterCubit>(context).icon,
                         ),
                         hintText: 'Min 8 Cyfr',
                         keyboardType: TextInputType.visiblePassword,

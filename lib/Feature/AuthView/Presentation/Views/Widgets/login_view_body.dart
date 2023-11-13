@@ -141,12 +141,13 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       ),
                       CustomTextFormFiled(
                         obscureText: Loginubite.isPasswordShow,
-                        suffixIcon: IconButton(
-                          onPressed: () {
+                        suffixIcon: InkWell(
+                          splashColor: Colors.transparent,
+                          onTap: () {
                             BlocProvider.of<LoginCubit>(context)
                                 .ChangepasswordVisiability();
                           },
-                          icon: Loginubite.icon,
+                          child: BlocProvider.of<LoginCubit>(context).icon,
                         ),
                         hintText: 'Min 6 Cyfr',
                         keyboardType: TextInputType.visiblePassword,
