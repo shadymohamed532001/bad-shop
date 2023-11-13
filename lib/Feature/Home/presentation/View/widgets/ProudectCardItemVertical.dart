@@ -1,4 +1,4 @@
-import 'package:bag/AppManager/ColorMangager.dart';
+import 'package:bag/Core/Uitls/Resourses/ColorMangager.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/CircleContiner.dart';
 import 'package:bag/Feature/Home/presentation/ViewModels/HomeModel/home_model/home_model.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +49,7 @@ class ProudectCardItemVertical extends StatelessWidget {
                     width: 40,
                     heignt: 30,
                     borderRadius: BorderRadius.circular(12),
-                    Circlecolor: ColorManger.yellowColor,
+                    circlecolor: ColorManger.yellowColor,
                     child: Center(
                       child: Text(
                         '${homeModel.data!.products![index].discount}\%',
@@ -68,7 +68,7 @@ class ProudectCardItemVertical extends StatelessWidget {
                     width: 45,
                     heignt: 38,
                     borderRadius: BorderRadius.circular(50),
-                    Circlecolor: ColorManger.whiteColor,
+                    circlecolor: ColorManger.whiteColor,
                     child: Center(
                       child: IconButton(
                         onPressed: () {},
@@ -116,7 +116,7 @@ class ProudectCardItemVertical extends StatelessWidget {
                     CircleContiner(
                       width: 50,
                       heignt: 50,
-                      Circlecolor: ColorManger.primaryColor,
+                      circlecolor: ColorManger.primaryColor,
                       borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(24),
                           bottomRight: Radius.circular(24)),

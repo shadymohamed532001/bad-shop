@@ -1,4 +1,4 @@
-import 'package:bag/AppManager/ColorMangager.dart';
+import 'package:bag/Core/Uitls/Resourses/ColorMangager.dart';
 import 'package:bag/Feature/Home/presentation/View/Manager/Cubites/HomeCubite/cubit/home_cubit.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/ProudectCardItemVertical.dart';
 import 'package:carousel_slider/carousel_slider.dart';

@@ -1,4 +1,4 @@
-import 'package:bag/AppManager/FontManager.dart';
+import 'package:bag/Core/Uitls/Resourses/FontManager.dart';
 import 'package:flutter/material.dart';
 
 // main function the all type return it

@@ -1,6 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:bag/Core/Uitls/ApiServices.dart';
+import 'package:bag/Core/Uitls/api_services.dart';
 import 'package:bag/Core/Uitls/Constants.dart';
 import 'package:bag/Core/Uitls/endBoint.dart';
 import 'package:bag/Feature/Home/presentation/View/ProfileView.dart';

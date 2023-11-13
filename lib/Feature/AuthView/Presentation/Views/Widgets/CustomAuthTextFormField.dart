@@ -1,6 +1,6 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:bag/AppManager/ColorMangager.dart';
+import 'package:bag/Core/Uitls/Resourses/ColorMangager.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormFiled extends StatelessWidget {
@@ -40,7 +40,7 @@ class CustomTextFormFiled extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16)
           .copyWith(top: 12, bottom: 8),
       child: TextFormField(
-        onTapOutside: (Event) {
+        onTapOutside: (event) {
           FocusManager.instance.primaryFocus?.unfocus();
         },
         maxLines: maxLine,

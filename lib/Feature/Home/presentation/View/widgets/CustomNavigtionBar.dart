@@ -1,6 +1,6 @@
 // ignore_for_file: file_names
 
-import 'package:bag/AppManager/ColorMangager.dart';
+import 'package:bag/Core/Uitls/Resourses/ColorMangager.dart';
 import 'package:bag/Feature/Home/presentation/View/Manager/Cubites/HomeCubite/cubit/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

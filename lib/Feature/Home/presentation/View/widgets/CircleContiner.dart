@@ -5,7 +5,7 @@ class CircleContiner extends StatelessWidget {
     super.key,
     this.width = 400,
     this.heignt = 400,
-    this.Circlecolor,
+    this.circlecolor,
     this.child,
     this.margin,
     this.borderRadius,
@@ -13,7 +13,7 @@ class CircleContiner extends StatelessWidget {
   });
   final double? width;
   final double? heignt;
-  final Color? Circlecolor;
+  final Color? circlecolor;
   final Widget? child;
   final EdgeInsetsGeometry? margin;
   final BorderRadiusGeometry? borderRadius;
@@ -28,7 +28,7 @@ class CircleContiner extends StatelessWidget {
       padding: padding,
       decoration: BoxDecoration(
         borderRadius: borderRadius,
-        color: Circlecolor,
+        color: circlecolor,
       ),
       child: child,
     );

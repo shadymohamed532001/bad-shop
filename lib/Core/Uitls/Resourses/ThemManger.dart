@@ -1,6 +1,6 @@
-import 'package:bag/AppManager/ColorMangager.dart';
-import 'package:bag/AppManager/StayleManger.dart';
-import 'package:bag/AppManager/ValuesManger.dart';
+import 'package:bag/Core/Uitls/Resourses/ColorMangager.dart';
+import 'package:bag/Core/Uitls/Resourses/StayleManger.dart';
+import 'package:bag/Core/Uitls/Resourses/ValuesManger.dart';
 import 'package:flutter/material.dart';
 
 ThemeData getAppThem() {
@@ -22,12 +22,12 @@ ThemeData getAppThem() {
       ),
       // Text Them
       textTheme: TextTheme(
-          titleLarge:
-              getBoldStyle(color: ColorManger.greyColor, fontsize: AppSize.s28),
+          titleLarge: getBoldStyle(
+              color: ColorManger.blackColor, fontsize: AppSize.s28),
           titleMedium: getMediumStyle(
-              color: ColorManger.greyColor, fontsize: AppSize.s18),
-          titleSmall: getMediumStyle(
-              color: ColorManger.greyColor, fontsize: AppSize.s12))
+              color: ColorManger.blackColor, fontsize: AppSize.s18),
+          titleSmall: getRegularStyle(
+              color: ColorManger.blackColor, fontsize: AppSize.s12))
       // Input Them
       );
 }

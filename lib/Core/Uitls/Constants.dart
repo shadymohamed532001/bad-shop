@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 int selectedButtonIndex = 0;
-bool? OnBording;
+bool? onBording;
 String? token;
 Widget? widgetInit;
 

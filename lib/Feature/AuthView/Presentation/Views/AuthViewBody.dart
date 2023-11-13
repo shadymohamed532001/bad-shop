@@ -1,5 +1,5 @@
-import 'package:bag/AppManager/ColorMangager.dart';
-import 'package:bag/Core/Uitls/assets.dart';
+import 'package:bag/Core/Uitls/Resourses/ColorMangager.dart';
+import 'package:bag/Core/Uitls/Resourses/ImageAssets.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/LoginViewBody.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/SignUpViewBody.dart';
 import 'package:bag/Feature/AuthView/Presentation/manager/Cubites/LoginCubite/cubit/login_cubit.dart';
@@ -47,7 +47,7 @@ class _MyTabbedPageState extends State<AuthViewBody>
           appBar: AppBar(
             automaticallyImplyLeading: false,
             title: Image.asset(
-              AppAssets.applogoBlack,
+              ImagesAssetsManger.applogoBlack,
               width: 50,
               height: 50,
             ),

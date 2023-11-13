@@ -1,4 +1,4 @@
-import 'package:bag/AppManager/ColorMangager.dart';
+import 'package:bag/Core/Uitls/Resourses/ColorMangager.dart';
 import 'package:bag/Core/Uitls/AppStyles.dart';
 import 'package:bag/Core/Uitls/functions.dart';
 import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/ListOfOnBordingContinet.dart';
@@ -16,7 +16,7 @@ class CustomOnBordBottom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       // margin: const EdgeInsets.only(bottom: 30, top: 30),
       height: 55,
       width: double.infinity,
@@ -26,8 +26,9 @@ class CustomOnBordBottom extends StatelessWidget {
             Submited(context);
           }
           pageController.nextPage(
-              duration: const Duration(microseconds: 100),
-              curve: Curves.bounceIn);
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.easeIn,
+          );
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: ColorManger.primaryColor,

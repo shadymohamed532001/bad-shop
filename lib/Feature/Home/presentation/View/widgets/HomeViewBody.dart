@@ -1,6 +1,6 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:bag/AppManager/ColorMangager.dart';
+import 'package:bag/Core/Uitls/Resourses/ColorMangager.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/CustomtabBar.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/ListOfCatogry.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/PopularListViewItems.dart';
