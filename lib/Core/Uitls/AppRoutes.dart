@@ -3,7 +3,7 @@
 import 'package:bag/Feature/AuthView/Presentation/Views/AuthViewBody.dart';
 
 import 'package:bag/Feature/Home/presentation/View/HomeView.dart';
-import 'package:bag/Feature/OnBordingView/Presentation/Views/OnBordingView.dart';
+import 'package:bag/Feature/OnBordingView/Presentation/Views/onbodrding_view.dart';
 import 'package:bag/Feature/SplashView/Presntation/Views/SplashView.dart';
 import 'package:go_router/go_router.dart';
 

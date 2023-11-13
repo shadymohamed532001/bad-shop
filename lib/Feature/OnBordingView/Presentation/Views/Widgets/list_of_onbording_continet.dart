@@ -1,5 +1,5 @@
 import 'package:bag/Core/Uitls/Resourses/ImageAssets.dart';
-import 'package:bag/Feature/OnBordingView/Presentation/ViewModels/OnBordingModel.dart';
+import 'package:bag/Feature/OnBordingView/data/models/on_bording_model.dart';
 
 List<OnBordingContente> continte = [
   OnBordingContente(

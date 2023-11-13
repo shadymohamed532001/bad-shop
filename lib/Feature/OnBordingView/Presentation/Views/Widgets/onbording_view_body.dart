@@ -1,13 +1,11 @@
-// ignore_for_file: file_names
-
-import 'package:bag/Core/Uitls/Resourses/ColorMangager.dart';
 import 'package:bag/Core/Uitls/ClipShapes.dart';
 import 'package:bag/Core/Uitls/functions.dart';
 import 'package:bag/Core/Widgets/CustomClipPath.dart';
-import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/CustomSkiper.dart';
-import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/ListOfOnBordingContinet.dart';
-import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/OnBordingLogo.dart';
-import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/onBordingBottom.dart';
+import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/custom_skiper.dart';
+import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/list_of_onbording_continet.dart';
+import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/onbording_view_logo.dart';
+import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/custom_dot_items.dart';
+import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/onbording_view_bottom.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -95,36 +93,11 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                     const Spacer(
                       flex: 1,
                     ),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: List.generate(
-                                3,
-                                (index) => Container(
-                                      height: 7,
-                                      width: currnetIndex == index ? 30 : 10,
-                                      margin: const EdgeInsets.only(right: 5),
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(20),
-                                        color: ColorManger.primaryColor,
-                                      ),
-                                    )),
-                          ),
-                          const Spacer(
-                            flex: 5,
-                          ),
-                          CustomOnBordBottom(
-                            currnetIndex: currnetIndex,
-                            pageController: pageController,
-                          ),
-                          const Spacer(
-                            flex: 6,
-                          ),
-                        ],
-                      ),
-                    )
+                    CustomDotItems(currnetIndex: currnetIndex),
+                    CustomOnBordBottom(
+                      currnetIndex: currnetIndex,
+                      pageController: pageController,
+                    ),
                   ],
                 ),
               ),

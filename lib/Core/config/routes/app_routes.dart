@@ -1,6 +1,6 @@
 import 'package:bag/Core/config/routes/routes.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/AuthViewBody.dart';
-import 'package:bag/Feature/OnBordingView/Presentation/Views/OnBordingView.dart';
+import 'package:bag/Feature/OnBordingView/Presentation/Views/onbodrding_view.dart';
 import 'package:bag/Feature/SplashView/Presntation/Views/SplashView.dart';
 import 'package:flutter/material.dart';
 

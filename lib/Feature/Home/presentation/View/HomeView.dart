@@ -11,15 +11,18 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeCubit, HomeState>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        var Cubite = BlocProvider.of<HomeCubit>(context);
-        return Scaffold(
-          body: Cubite.NavBarScreans[Cubite.currentIndex],
-          bottomNavigationBar: CustomBottomNavBar(),
-        );
-      },
+    return BlocProvider(
+      create: (context) => HomeCubit(),
+      child: BlocConsumer<HomeCubit, HomeState>(
+        listener: (context, state) {},
+        builder: (context, state) {
+          var Cubite = BlocProvider.of<HomeCubit>(context);
+          return Scaffold(
+            body: Cubite.NavBarScreans[Cubite.currentIndex],
+            bottomNavigationBar: CustomBottomNavBar(),
+          );
+        },
+      ),
     );
   }
 }
