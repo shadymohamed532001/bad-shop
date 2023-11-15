@@ -11,7 +11,7 @@ class ApiServices {
     ));
   }
 
-  static Future<Response> PostData({
+  static Future<Response> postData({
     required String endpoint,
     required Object? data,
     String? token,
@@ -28,7 +28,7 @@ class ApiServices {
     );
   }
 
-  static Future<Response> GetData(
+  static Future<Response> getData(
       {required String endpoint,
       Object? data,
       String? token,

@@ -20,7 +20,7 @@ class LoginCubit extends Cubit<LoginState> {
     required String password,
   }) async {
     emit(LoginLoading());
-    await ApiServices.PostData(
+    await ApiServices.postData(
         lang: lang ?? 'en',
         endpoint: Loginendpoint,
         data: {

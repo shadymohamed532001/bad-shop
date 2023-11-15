@@ -1,13 +1,11 @@
-// ignore_for_file: non_constant_identifier_names, constant_identifier_names
-
 import 'package:bag/Core/Uitls/Resourses/ColorMangager.dart';
 import 'package:bag/Core/Uitls/LocalServices.dart';
 import 'package:bag/Core/Uitls/functions.dart';
 import 'package:bag/Core/Widgets/CustomBottom.dart';
-import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/CustomAuthTextFormField.dart';
-import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/ShowsToustColor.dart';
+import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/custom_auth_text_formfield.dart';
+import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/shows_toust_color.dart';
 import 'package:bag/Feature/AuthView/Presentation/manager/Cubites/LoginCubite/cubit/login_cubit.dart';
-import 'package:bag/Feature/Home/presentation/View/HomeView.dart';
+import 'package:bag/Feature/Home/presentation/View/home_view.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -53,7 +51,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
           if (state.bagLoginModel.status == true) {
             Navigator.of(context)
                 .pop(); // close the dialog if successfully logged in
-            ShowTouster(
+            showTouster(
               massage: state.bagLoginModel.message!,
               state: ToustState.SUCCESS,
             );
@@ -64,7 +62,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             });
           } else {
             Navigator.of(context).pop(); // close the dialog if login fails
-            ShowTouster(
+            showTouster(
               massage: state.bagLoginModel.message!,
               state: ToustState.ERROR,
             );
@@ -72,7 +70,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         }
       },
       builder: (context, state) {
-        var Loginubite = BlocProvider.of<LoginCubit>(context);
+        var loginCubite = BlocProvider.of<LoginCubit>(context);
         return Padding(
           padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(
@@ -140,7 +138,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                                 .copyWith(fontSize: 15)),
                       ),
                       CustomTextFormFiled(
-                        obscureText: Loginubite.isPasswordShow,
+                        obscureText: loginCubite.isPasswordShow,
                         suffixIcon: InkWell(
                           splashColor: Colors.transparent,
                           onTap: () {
@@ -183,7 +181,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                         bottomtext: 'Sign in',
                         onPressed: () {
                           if (formKey.currentState!.validate() == true) {
-                            LoginUser(context);
+                            loginUser(context);
                           } else {
                             autovalidateMode = AutovalidateMode.always;
                             setState(() {});
@@ -224,7 +222,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
     );
   }
 
-  void LoginUser(BuildContext context) {
+  void loginUser(BuildContext context) {
     BlocProvider.of<LoginCubit>(context).LoginUser(
       Email: emailController.text,
       password: passwordController.text,

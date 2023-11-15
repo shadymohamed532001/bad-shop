@@ -1,13 +1,11 @@
-// ignore_for_file: non_constant_identifier_names
-
 import 'package:bag/Core/Uitls/Resourses/ColorMangager.dart';
 import 'package:bag/Core/Uitls/LocalServices.dart';
 import 'package:bag/Core/Uitls/functions.dart';
 import 'package:bag/Core/Widgets/CustomBottom.dart';
-import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/CustomAuthTextFormField.dart';
-import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/ShowsToustColor.dart';
+import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/custom_auth_text_formfield.dart';
+import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/shows_toust_color.dart';
 import 'package:bag/Feature/AuthView/Presentation/manager/Cubites/RegisterCubite/cubit/register_cubit.dart';
-import 'package:bag/Feature/Home/presentation/View/HomeView.dart';
+import 'package:bag/Feature/Home/presentation/View/home_view.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -64,7 +62,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
           if (state.bagRegisterModel.status == true) {
             Navigator.of(context)
                 .pop(); // close the dialog if successfully logged in
-            ShowTouster(
+            showTouster(
               massage: state.bagRegisterModel.message!,
               state: ToustState.SUCCESS,
             );
@@ -75,7 +73,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
             });
           } else {
             Navigator.of(context).pop(); // close the dialog if login fails
-            ShowTouster(
+            showTouster(
               massage: state.bagRegisterModel.message!,
               state: ToustState.ERROR,
             );
@@ -257,7 +255,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                         onPressed: () {
                           if (formKey.currentState!.validate() &&
                               widget.isChecked == true) {
-                            RegisterUser(context);
+                            registerUser(context);
                           } else {
                             autovalidateMode = AutovalidateMode.always;
                             setState(() {});
@@ -298,7 +296,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
     );
   }
 
-  void RegisterUser(BuildContext context) {
+  void registerUser(BuildContext context) {
     BlocProvider.of<RegisterCubit>(context).RegisterUser(
         email: emailController.text,
         password: passwordController.text,

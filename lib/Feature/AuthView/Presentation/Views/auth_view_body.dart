@@ -1,7 +1,7 @@
 import 'package:bag/Core/Uitls/Resourses/ColorMangager.dart';
 import 'package:bag/Core/Uitls/Resourses/ImageAssets.dart';
-import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/LoginViewBody.dart';
-import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/SignUpViewBody.dart';
+import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/login_view_body.dart';
+import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/sign_up_view_body.dart';
 import 'package:bag/Feature/AuthView/Presentation/manager/Cubites/LoginCubite/cubit/login_cubit.dart';
 import 'package:bag/Feature/AuthView/Presentation/manager/Cubites/RegisterCubite/cubit/register_cubit.dart';
 import 'package:flutter/material.dart';

@@ -3,9 +3,9 @@
 import 'package:bag/Core/Uitls/api_services.dart';
 import 'package:bag/Core/Uitls/Constants.dart';
 import 'package:bag/Core/Uitls/endBoint.dart';
-import 'package:bag/Feature/Home/presentation/View/ProfileView.dart';
-import 'package:bag/Feature/Home/presentation/View/StoreView.dart';
-import 'package:bag/Feature/Home/presentation/View/WishListView.dart';
+import 'package:bag/Feature/Home/presentation/View/profile_view.dart';
+import 'package:bag/Feature/Home/presentation/View/store_view.dart';
+import 'package:bag/Feature/Home/presentation/View/wishlist_view.dart';
 import 'package:bag/Feature/Home/presentation/View/widgets/HomeViewBody.dart';
 import 'package:bag/Feature/Home/presentation/ViewModels/HomeModel/home_model/home_model.dart';
 import 'package:bloc/bloc.dart';
@@ -35,7 +35,7 @@ class HomeCubit extends Cubit<HomeState> {
     emit(HomeLoading());
 
     try {
-      var responses = await ApiServices.GetData(
+      var responses = await ApiServices.getData(
           endpoint: homeendPoint, token: token, lang: 'en');
 
       homeModel = HomeModel.fromJson(responses.data);
@@ -46,19 +46,4 @@ class HomeCubit extends Cubit<HomeState> {
       emit(HomeError(error: e.toString()));
     }
   }
-
-  // Future HomeGetData() async {
-  //   emit(HomeLoading());
-
-  //   await ApiServices.GetData(endpoint: homeendPoint, token: token).then(
-  //     (value) {
-  //       homeModel = HomeModel.fromJson(value.data);
-  //       print(homeModel!.data!.banners![0].image);
-
-  //       emit(HomeSucess(homeModel: homeModel!));
-  //     },
-  //   ).catchError((error) {
-  //     emit(HomeError(error: error.toString()));
-  //   });
-  // }
 }

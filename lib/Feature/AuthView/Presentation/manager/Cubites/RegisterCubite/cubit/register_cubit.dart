@@ -20,7 +20,7 @@ class RegisterCubit extends Cubit<RegisterState> {
     String? lang,
   }) async {
     emit(RegisterLoading());
-    await ApiServices.PostData(
+    await ApiServices.postData(
       endpoint: RegisterendPoint,
       lang: lang ?? 'en',
       data: {

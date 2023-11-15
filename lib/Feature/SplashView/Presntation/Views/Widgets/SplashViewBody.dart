@@ -1,6 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:bag/Core/Uitls/ClipShapes.dart';
+import 'package:bag/Core/Uitls/Constants.dart';
 import 'package:bag/Core/Uitls/Resourses/ImageAssets.dart';
 import 'package:bag/Core/Uitls/functions.dart';
 import 'package:bag/Core/Widgets/CustomClipPath.dart';
@@ -91,8 +92,15 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void _navigateToHome() {
     Future.delayed(const Duration(seconds: 2), (() {
-      PushAndFinsh(context, PageName: Routes.onBoardingViewRoute);
-      // context.navigateAndReplacement(newRoute: Routes.onBoardingViewRoute);
+      if (onBording != null) {
+        if (token != null) {
+          PushAndFinsh(context, PageName: Routes.HomeViewRoute);
+        } else {
+          PushAndFinsh(context, PageName: Routes.AuthViewRoute);
+        }
+      } else {
+        PushAndFinsh(context, PageName: Routes.onBoardingViewRoute);
+      }
     }));
   }
 

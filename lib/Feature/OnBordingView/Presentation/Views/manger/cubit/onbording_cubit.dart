@@ -1,26 +1,46 @@
-import 'package:bag/Core/Uitls/functions.dart';
-import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/list_of_onbording_continet.dart';
 import 'package:bag/Feature/OnBordingView/data/models/on_bording_model.dart';
+import 'package:bag/Feature/OnBordingView/data/repositories/onbording_repo.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
 
 part 'onbording_state.dart';
 
 class OnbordingCubit extends Cubit<OnbordingState> {
-  OnbordingCubit() : super(OnbordingInitial());
+  final OnBoardingRepo onBoardingRepo;
 
-  List<OnBordingModel> onBoardingPages = continte;
+  OnbordingCubit({required this.onBoardingRepo}) : super(OnbordingInitial());
 
-  void onChangePageIndex(
-      int index, BuildContext context, PageController pageController) {
-    if (index == onBoardingPages.length - 1) {
-      Submited(context);
+  bool isLastBoarding = false;
+  List<OnBordingModel> onBoardingPages() {
+    return onBoardingRepo.onBoardingPages();
+  }
+
+  int? index;
+  void onChangePageIndex(index) {
+    if (index == onBoardingPages().length - 1) {
+      isLastBoarding = true;
     } else {
-      pageController.nextPage(
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeIn,
-      );
+      isLastBoarding = false;
     }
     emit(PageViewIndexChangedState());
+  }
+
+  void navigateBetweenPages({
+    required BuildContext context,
+    required PageController pageController,
+  }) {
+    onBoardingRepo.navigateBetweenPages(
+      context: context,
+      pageController: pageController,
+      isLastBoarding: isLastBoarding,
+    );
+
+    emit(NavigateBetweenPages());
+  }
+
+  void navigateToLoginOrHome({required BuildContext context}) {
+    onBoardingRepo.navigateToAuth(context: context);
+
+    emit(SkipToSignInOrHome());
   }
 }

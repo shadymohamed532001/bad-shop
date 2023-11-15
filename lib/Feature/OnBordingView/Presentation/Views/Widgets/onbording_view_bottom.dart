@@ -10,25 +10,22 @@ class CustomOnBordBottom extends StatelessWidget {
     super.key,
     required this.currnetIndex,
     required this.pageController,
+    required this.onPressed,
   });
 
   final int currnetIndex;
   final PageController pageController;
+  final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<OnbordingCubit, OnbordingState>(
       builder: (context, state) {
-        var onbordingcubite = BlocProvider.of<OnbordingCubit>(context);
-
         return SizedBox(
           height: 55,
           width: double.infinity,
           child: ElevatedButton(
-            onPressed: () {
-              onbordingcubite.onChangePageIndex(
-                  currnetIndex, context, pageController);
-            },
+            onPressed: onPressed,
             style: ElevatedButton.styleFrom(
               backgroundColor: ColorManger.primaryColor,
               shadowColor: Colors.grey,

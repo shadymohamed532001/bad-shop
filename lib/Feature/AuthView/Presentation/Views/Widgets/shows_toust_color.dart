@@ -1,10 +1,8 @@
-// ignore_for_file: constant_identifier_names, non_constant_identifier_names
-
 import 'package:bag/Core/Uitls/Resourses/ColorMangager.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-void ShowTouster({
+void showTouster({
   required String massage,
   required ToustState state,
 }) {
@@ -13,7 +11,7 @@ void ShowTouster({
     toastLength: Toast.LENGTH_LONG,
     gravity: ToastGravity.TOP_RIGHT,
     timeInSecForIosWeb: 2,
-    backgroundColor: ShowsToustColor(state),
+    backgroundColor: showsToustColor(state),
     textColor: ColorManger.whiteColor,
     fontSize: 16.0,
   );
@@ -25,7 +23,7 @@ enum ToustState {
   WARNING,
 }
 
-Color ShowsToustColor(ToustState state) {
+Color showsToustColor(ToustState state) {
   Color? color;
 
   switch (state) {

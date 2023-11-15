@@ -9,10 +9,13 @@ class OnBordingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => OnbordingCubit(),
-      child: Scaffold(
-        body: OnboardingViewBody(),
+    return Scaffold(
+      body: BlocBuilder<OnbordingCubit, OnbordingState>(
+        builder: (context, state) {
+          return OnboardingViewBody(
+            cubit: BlocProvider.of<OnbordingCubit>(context),
+          );
+        },
       ),
     );
   }
