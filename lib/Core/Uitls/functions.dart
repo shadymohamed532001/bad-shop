@@ -1,7 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:bag/Core/Uitls/Constants.dart';
-import 'package:bag/Core/Uitls/LocalServices.dart';
+import 'package:bag/Core/Uitls/local_services.dart';
 import 'package:bag/Core/config/routes/routes.dart';
 import 'package:flutter/material.dart';
 

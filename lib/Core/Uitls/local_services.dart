@@ -1,10 +1,8 @@
-// ignore_for_file: non_constant_identifier_names
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalServices {
   static late SharedPreferences sharedPreferences;
-  static Init() async {
+  static init() async {
     sharedPreferences = await SharedPreferences.getInstance();
   }
 

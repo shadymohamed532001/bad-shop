@@ -1,5 +1,5 @@
 import 'package:bag/Core/Uitls/Resourses/ColorMangager.dart';
-import 'package:bag/Feature/SplashView/Presntation/Views/Widgets/SplashViewBody.dart';
+import 'package:bag/Feature/SplashView/Presntation/Views/Widgets/splash_view_body.dart';
 import 'package:flutter/material.dart';
 
 class SplashView extends StatelessWidget {

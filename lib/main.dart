@@ -1,6 +1,5 @@
-import 'package:bag/Core/Uitls/Constants.dart';
 import 'package:bag/Core/Uitls/api_services.dart';
-import 'package:bag/Core/Uitls/LocalServices.dart';
+import 'package:bag/Core/Uitls/local_services.dart';
 import 'package:bag/Core/Uitls/blocObserver.dart';
 import 'package:bag/Core/Uitls/functions.dart';
 import 'package:bag/Core/Uitls/service_locator.dart';
@@ -12,7 +11,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   ServiceLocator().setupServiceLocator();
   Bloc.observer = MyBlocObserver();
-  await LocalServices.Init();
+  await LocalServices.init();
   fetchDataFromLocalStorage();
   ApiServices.init();
   runApp(BgaStore());

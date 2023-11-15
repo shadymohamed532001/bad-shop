@@ -1,5 +1,5 @@
 import 'package:bag/Core/Uitls/Resourses/ColorMangager.dart';
-import 'package:bag/Core/Uitls/LocalServices.dart';
+import 'package:bag/Core/Uitls/local_services.dart';
 import 'package:bag/Core/Uitls/functions.dart';
 import 'package:bag/Core/Widgets/CustomBottom.dart';
 import 'package:bag/Feature/AuthView/Presentation/Views/Widgets/custom_auth_text_formfield.dart';

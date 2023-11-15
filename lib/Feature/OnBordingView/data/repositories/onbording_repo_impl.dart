@@ -1,4 +1,4 @@
-import 'package:bag/Core/Uitls/LocalServices.dart';
+import 'package:bag/Core/Uitls/local_services.dart';
 import 'package:bag/Core/Uitls/functions.dart';
 import 'package:bag/Core/config/routes/routes.dart';
 import 'package:bag/Feature/OnBordingView/Presentation/Views/Widgets/list_of_onbording_continet.dart';

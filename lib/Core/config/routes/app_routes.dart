@@ -8,7 +8,7 @@ import 'package:bag/Feature/AuthView/Presentation/Views/auth_view_body.dart';
 import 'package:bag/Feature/Home/presentation/View/home_view.dart';
 import 'package:bag/Feature/OnBordingView/Presentation/Views/manger/cubit/onbording_cubit.dart';
 import 'package:bag/Feature/OnBordingView/Presentation/Views/onbodrding_view.dart';
-import 'package:bag/Feature/SplashView/Presntation/Views/SplashView.dart';
+import 'package:bag/Feature/SplashView/Presntation/Views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

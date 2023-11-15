@@ -1,5 +1,3 @@
-// ignore_for_file: non_constant_identifier_names
-
 import 'package:bag/Core/Uitls/ClipShapes.dart';
 import 'package:bag/Core/Uitls/Constants.dart';
 import 'package:bag/Core/Uitls/Resourses/ImageAssets.dart';
